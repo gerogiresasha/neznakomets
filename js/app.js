@@ -216,5 +216,7 @@
 
   init().catch((err) => {
     console.error("Failed to load story:", err);
+    app.classList.remove("fade");
+    content.innerHTML = "<div class=\"narration\">Не удалось загрузить историю. Проверь консоль и сеть.</div>";
   });
 })();
