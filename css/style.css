@@ -1,0 +1,147 @@
+:root {
+  --ui-font: "Inter", system-ui, -apple-system, sans-serif;
+  --narrative-font: "Cormorant Garamond", serif;
+  --text: #f6f3ef;
+  --muted: rgba(246, 243, 239, 0.8);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  --mark-bg: rgba(15, 17, 22, 0.8);
+  --player-bg: rgba(174, 126, 78, 0.92);
+  --choice-bg: rgba(20, 20, 20, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--ui-font);
+  background: #0b0b0b;
+  color: var(--text);
+}
+
+#app {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: opacity 300ms ease;
+}
+
+#app.fade {
+  opacity: 0;
+}
+
+#bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.75) 60%, rgba(0,0,0,0.9) 100%);
+  z-index: 1;
+}
+
+#content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px 18px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.narration {
+  font-family: var(--narrative-font);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.4;
+  text-shadow: var(--shadow);
+  color: var(--text);
+}
+
+.bubble {
+  max-width: 90%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  line-height: 1.35;
+  box-shadow: var(--shadow);
+}
+
+.bubble.mark {
+  align-self: flex-start;
+  background: var(--mark-bg);
+}
+
+.bubble.player {
+  align-self: flex-end;
+  background: var(--player-bg);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.button {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: var(--ui-font);
+  background: var(--choice-bg);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow);
+}
+
+.button.primary {
+  background: rgba(225, 206, 176, 0.92);
+  color: #231f18;
+  text-align: center;
+  font-weight: 600;
+}
+
+.share-card {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.4;
+  text-shadow: var(--shadow);
+}
+
+.meta {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(246, 243, 239, 0.6);
+}
+
+@media (min-width: 768px) {
+  #content {
+    padding-bottom: 36px;
+  }
+
+  .narration {
+    font-size: 22px;
+  }
+}

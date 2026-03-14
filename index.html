@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Незнакомец</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app" class="fade" aria-live="polite">
+      <div id="bg"></div>
+      <div id="overlay"></div>
+      <main id="content"></main>
+    </div>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <script>
+      if (window.vkBridge) {
+        vkBridge.send("VKWebAppInit", {})
+          .then(() => { window.__vkBridgeInited = true; })
+          .catch((error) => {
+            console.warn("VK Bridge init failed:", error);
+          });
+      }
+    </script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
