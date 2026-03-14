@@ -14,15 +14,28 @@
 
   const safeText = (text) => (text || "").replace(/\{\{name\}\}/g, playerName);
 
+  const withTimeout = (promise, ms) => new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error("timeout")), ms);
+    promise
+      .then((value) => {
+        clearTimeout(timer);
+        resolve(value);
+      })
+      .catch((error) => {
+        clearTimeout(timer);
+        reject(error);
+      });
+  });
+
   const initPlayerName = async () => {
     if (!vkBridge) return DEFAULT_PLAYER_NAME;
     try {
       if (!vkBridgeInited) {
-        await vkBridge.send("VKWebAppInit");
+        await withTimeout(vkBridge.send("VKWebAppInit"), 1500);
         vkBridgeInited = true;
         window.__vkBridgeInited = true;
       }
-      const data = await vkBridge.send("VKWebAppGetUserInfo");
+      const data = await withTimeout(vkBridge.send("VKWebAppGetUserInfo"), 1500);
       return data && data.first_name ? data.first_name : DEFAULT_PLAYER_NAME;
     } catch (error) {
       console.warn("VK Bridge get name failed:", error);
@@ -38,7 +51,7 @@
     }
     try {
       if (!vkBridgeInited) {
-        await vkBridge.send("VKWebAppInit");
+        await withTimeout(vkBridge.send("VKWebAppInit"), 1500);
         vkBridgeInited = true;
         window.__vkBridgeInited = true;
       }
