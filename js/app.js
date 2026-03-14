@@ -7,6 +7,7 @@
   const vkBridge = window.vkBridge || null;
   let vkBridgeInited = window.__vkBridgeInited === true;
 
+  window.__appLoaded = true;
   let story = null;
   let currentSceneId = null;
   let currentAudio = null;
@@ -215,9 +216,8 @@
   };
 
   const init = async () => {
-    const response = await fetch("js/story.json");
+    const response = await fetch("js/story.json", { cache: "no-store" });
     story = await response.json();
-    playerName = await initPlayerName();
     const saved = localStorage.getItem(STORAGE_KEY);
     currentSceneId = saved && story.scenes[saved] ? saved : story.start;
     if (saved && !story.scenes[saved]) {
@@ -225,6 +225,10 @@
     }
     enableTapToAdvance();
     renderScene();
+    initPlayerName().then((name) => {
+      playerName = name || DEFAULT_PLAYER_NAME;
+      renderScene();
+    });
   };
 
   init().catch((err) => {
