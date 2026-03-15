@@ -10,6 +10,7 @@
     || localStorage.getItem("vkdebug") === "1";
   const VK_BRIDGE_TIMEOUT_MS = 5000;
   const VK_BRIDGE_RETRY_DELAY_MS = 400;
+  const VK_BRIDGE_INTERACTIVE_TIMEOUT_MS = 60000;
   const VK_DEBUG_AUTOHIDE_MS = 8000;
 
   const logVk = (...args) => {
@@ -187,8 +188,19 @@
       });
   });
 
-  const sendVk = (method, params = {}) =>
-    withTimeout(vkBridge.send(method, params), VK_BRIDGE_TIMEOUT_MS);
+  const INTERACTIVE_METHODS = new Set([
+    "VKWebAppGetAuthToken",
+    "VKWebAppShowWallPostBox",
+    "VKWebAppShowShareBox",
+    "VKWebAppShare",
+  ]);
+
+  const sendVk = (method, params = {}) => {
+    const timeout = INTERACTIVE_METHODS.has(method)
+      ? VK_BRIDGE_INTERACTIVE_TIMEOUT_MS
+      : VK_BRIDGE_TIMEOUT_MS;
+    return withTimeout(vkBridge.send(method, params), timeout);
+  };
 
   const getShareLink = () => {
     const params = new URLSearchParams(window.location.search);
@@ -263,6 +275,7 @@
           return;
         }
         setShareStatus(statusNode, "Запрашиваем доступ к стене...");
+        logVk("VKWebAppGetAuthToken request");
         const auth = await sendVk("VKWebAppGetAuthToken", {
           app_id: Number(appId),
           scope: "wall",
@@ -272,6 +285,7 @@
           setShareStatus(statusNode, "Доступ к стене не выдан.", true);
           return;
         }
+        logVk("VKWebAppGetAuthToken ok");
         setShareStatus(statusNode, "Публикуем пост...");
         const link = getShareLink();
         const result = await sendVk("VKWebAppCallAPIMethod", {
