@@ -451,13 +451,6 @@
         })
       );
       actions.appendChild(
-        createButton("Пост на стене", () => {
-          const shareText = safeText(scene.share_text || scene.text);
-          setShareStatus(shareStatus, "");
-          shareWall(shareText, shareStatus);
-        })
-      );
-      actions.appendChild(
         createButton("Начать заново", () => {
           localStorage.removeItem(STORAGE_KEY);
           goTo(story.start);
