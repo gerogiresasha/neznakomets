@@ -190,6 +190,13 @@
   const sendVk = (method, params = {}) =>
     withTimeout(vkBridge.send(method, params), VK_BRIDGE_TIMEOUT_MS);
 
+  const getShareLink = () => {
+    const params = new URLSearchParams(window.location.search);
+    const appId = params.get("vk_app_id");
+    if (appId) return `https://vk.com/app${appId}`;
+    return `${window.location.origin}${window.location.pathname}`;
+  };
+
   const ensureVkInit = async () => {
     if (vkBridgeInited) return;
     await sendVk("VKWebAppInit");
@@ -237,6 +244,19 @@
     } catch (error) {
       console.warn("VK Bridge share failed:", error);
       logVk("VK Bridge share failed:", error);
+      try {
+        const link = getShareLink();
+        if (vkBridge.supports && vkBridge.supports("VKWebAppShowShareBox")) {
+          await sendVk("VKWebAppShowShareBox", { link });
+          logVk("VKWebAppShowShareBox ok");
+          return;
+        }
+        await sendVk("VKWebAppShare", { link });
+        logVk("VKWebAppShare ok");
+      } catch (fallbackError) {
+        console.warn("VK Bridge fallback share failed:", fallbackError);
+        logVk("VK Bridge fallback share failed:", fallbackError);
+      }
     }
   };
 
