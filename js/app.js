@@ -8,6 +8,8 @@
   let vkBridgeInited = window.__vkBridgeInited === true;
   const VK_DEBUG = new URLSearchParams(window.location.search).get("vkdebug") === "1"
     || localStorage.getItem("vkdebug") === "1";
+  const VK_BRIDGE_TIMEOUT_MS = 5000;
+  const VK_BRIDGE_RETRY_DELAY_MS = 400;
   const VK_DEBUG_AUTOHIDE_MS = 8000;
 
   const logVk = (...args) => {
@@ -185,16 +187,32 @@
       });
   });
 
+  const sendVk = (method, params = {}) =>
+    withTimeout(vkBridge.send(method, params), VK_BRIDGE_TIMEOUT_MS);
+
+  const ensureVkInit = async () => {
+    if (vkBridgeInited) return;
+    await sendVk("VKWebAppInit");
+    vkBridgeInited = true;
+    window.__vkBridgeInited = true;
+    logVk("VK Bridge init ok");
+  };
+
   const initPlayerName = async () => {
     if (!vkBridge) return DEFAULT_PLAYER_NAME;
     try {
-      if (!vkBridgeInited) {
-        await withTimeout(vkBridge.send("VKWebAppInit"), 1500);
-        vkBridgeInited = true;
-        window.__vkBridgeInited = true;
-        logVk("VK Bridge init ok");
+      await ensureVkInit();
+      let data = null;
+      try {
+        data = await sendVk("VKWebAppGetUserInfo");
+      } catch (error) {
+        if (error && error.message === "timeout") {
+          await new Promise((resolve) => setTimeout(resolve, VK_BRIDGE_RETRY_DELAY_MS));
+          data = await sendVk("VKWebAppGetUserInfo");
+        } else {
+          throw error;
+        }
       }
-      const data = await withTimeout(vkBridge.send("VKWebAppGetUserInfo"), 1500);
       logVk("VKWebAppGetUserInfo result:", data);
       return data && data.first_name ? data.first_name : DEFAULT_PLAYER_NAME;
     } catch (error) {
@@ -211,13 +229,8 @@
       return;
     }
     try {
-      if (!vkBridgeInited) {
-        await withTimeout(vkBridge.send("VKWebAppInit"), 1500);
-        vkBridgeInited = true;
-        window.__vkBridgeInited = true;
-        logVk("VK Bridge init ok");
-      }
-      await vkBridge.send("VKWebAppShowWallPostBox", {
+      await ensureVkInit();
+      await sendVk("VKWebAppShowWallPostBox", {
         message: text,
       });
       logVk("VKWebAppShowWallPostBox ok");
