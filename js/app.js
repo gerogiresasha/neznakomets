@@ -197,6 +197,11 @@
     return `${window.location.origin}${window.location.pathname}`;
   };
 
+  const getVkAppId = () => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("vk_app_id");
+  };
+
   const ensureVkInit = async () => {
     if (vkBridgeInited) return;
     await sendVk("VKWebAppInit");
@@ -251,7 +256,40 @@
     } catch (error) {
       console.warn("VK Bridge share failed:", error);
       logVk("VK Bridge share failed:", error);
-      setShareStatus(statusNode, "На стену не получилось. В dev‑режиме это часто блокируется.", true);
+      try {
+        const appId = getVkAppId();
+        if (!appId) {
+          setShareStatus(statusNode, "Не удалось получить app_id для запроса прав.", true);
+          return;
+        }
+        setShareStatus(statusNode, "Запрашиваем доступ к стене...");
+        const auth = await sendVk("VKWebAppGetAuthToken", {
+          app_id: Number(appId),
+          scope: "wall",
+        });
+        const token = auth && auth.access_token;
+        if (!token) {
+          setShareStatus(statusNode, "Доступ к стене не выдан.", true);
+          return;
+        }
+        setShareStatus(statusNode, "Публикуем пост...");
+        const link = getShareLink();
+        const result = await sendVk("VKWebAppCallAPIMethod", {
+          method: "wall.post",
+          params: {
+            message: text,
+            attachments: link,
+            v: "5.131",
+            access_token: token,
+          },
+        });
+        logVk("VKWebAppCallAPIMethod wall.post ok:", result);
+        setShareStatus(statusNode, "Пост опубликован.");
+      } catch (fallbackError) {
+        console.warn("VK Bridge wall.post fallback failed:", fallbackError);
+        logVk("VK Bridge wall.post fallback failed:", fallbackError);
+        setShareStatus(statusNode, "На стену не получилось. В dev‑режиме это часто блокируется.", true);
+      }
     }
   };
 
