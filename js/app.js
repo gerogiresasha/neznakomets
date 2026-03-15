@@ -6,6 +6,163 @@
   const DEFAULT_PLAYER_NAME = "незнакомка";
   const vkBridge = window.vkBridge || null;
   let vkBridgeInited = window.__vkBridgeInited === true;
+  const VK_DEBUG = new URLSearchParams(window.location.search).get("vkdebug") === "1"
+    || localStorage.getItem("vkdebug") === "1";
+  const VK_DEBUG_AUTOHIDE_MS = 8000;
+
+  const logVk = (...args) => {
+    if (!window.__vkBridgeLogs) window.__vkBridgeLogs = [];
+    window.__vkBridgeLogs.push({ ts: Date.now(), args });
+    if (window.__vkBridgeLogs.length > 50) {
+      window.__vkBridgeLogs.shift();
+    }
+    if (VK_DEBUG) {
+      console.log(...args);
+    }
+    if (typeof window.__vkDebugUpdate === "function") {
+      window.__vkDebugUpdate();
+    }
+  };
+
+  const formatVkArg = (arg) => {
+    if (arg instanceof Error) return arg.message;
+    if (typeof arg === "string") return arg;
+    try {
+      return JSON.stringify(arg);
+    } catch (error) {
+      return String(arg);
+    }
+  };
+
+  const formatVkLog = (entry) => {
+    const time = new Date(entry.ts).toLocaleTimeString("ru-RU", {
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+    const message = entry.args.map(formatVkArg).join(" ");
+    return `[${time}] ${message}`;
+  };
+
+  const initDebugPanel = () => {
+    if (!VK_DEBUG) return;
+    const wrap = document.createElement("div");
+    wrap.className = "vk-debug";
+    const toggle = document.createElement("button");
+    toggle.className = "vk-debug-toggle";
+    toggle.type = "button";
+    toggle.textContent = "VK Логи";
+    const panel = document.createElement("div");
+    panel.className = "vk-debug-panel";
+    panel.hidden = true;
+    const header = document.createElement("div");
+    header.className = "vk-debug-header";
+    const title = document.createElement("div");
+    title.textContent = "VK Bridge logs";
+    const actions = document.createElement("div");
+    actions.className = "vk-debug-actions";
+    const copyBtn = document.createElement("button");
+    copyBtn.className = "vk-debug-btn";
+    copyBtn.type = "button";
+    copyBtn.textContent = "Copy";
+    const saveBtn = document.createElement("button");
+    saveBtn.className = "vk-debug-btn";
+    saveBtn.type = "button";
+    saveBtn.textContent = "Save";
+    const clearBtn = document.createElement("button");
+    clearBtn.className = "vk-debug-btn";
+    clearBtn.type = "button";
+    clearBtn.textContent = "Clear";
+    actions.appendChild(copyBtn);
+    actions.appendChild(saveBtn);
+    actions.appendChild(clearBtn);
+    header.appendChild(title);
+    header.appendChild(actions);
+    const list = document.createElement("pre");
+    list.className = "vk-debug-list";
+    panel.appendChild(header);
+    panel.appendChild(list);
+    wrap.appendChild(toggle);
+    wrap.appendChild(panel);
+    document.body.appendChild(wrap);
+
+    const update = () => {
+      const logs = window.__vkBridgeLogs || [];
+      list.textContent = logs.map(formatVkLog).join("\n");
+    };
+    window.__vkDebugUpdate = update;
+    update();
+
+    let hideTimer = null;
+    const scheduleHide = () => {
+      if (panel.hidden) return;
+      if (hideTimer) clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => {
+        panel.hidden = true;
+      }, VK_DEBUG_AUTOHIDE_MS);
+    };
+
+    toggle.addEventListener("click", () => {
+      panel.hidden = !panel.hidden;
+      if (panel.hidden) {
+        if (hideTimer) clearTimeout(hideTimer);
+      } else {
+        scheduleHide();
+      }
+    });
+
+    clearBtn.addEventListener("click", () => {
+      window.__vkBridgeLogs = [];
+      update();
+      scheduleHide();
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      const text = list.textContent || "";
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          logVk("VK debug copied to clipboard");
+        } else {
+          throw new Error("clipboard-unavailable");
+        }
+      } catch (error) {
+        logVk("VK debug copy failed:", error);
+      }
+      scheduleHide();
+    });
+
+    saveBtn.addEventListener("click", () => {
+      const text = list.textContent || "";
+      const stamp = new Date();
+      const pad = (value) => String(value).padStart(2, "0");
+      const filename = `vk-bridge-logs-${stamp.getFullYear()}${pad(stamp.getMonth() + 1)}${pad(stamp.getDate())}-${pad(stamp.getHours())}${pad(stamp.getMinutes())}${pad(stamp.getSeconds())}.txt`;
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      logVk("VK debug saved:", filename);
+      scheduleHide();
+    });
+
+    ["mousemove", "touchstart", "wheel", "keydown", "click"].forEach((eventName) => {
+      panel.addEventListener(eventName, scheduleHide, { passive: true });
+    });
+  };
+
+  if (vkBridge && typeof vkBridge.subscribe === "function") {
+    vkBridge.subscribe((event) => logVk("VK Bridge event:", event));
+  }
+
+  if (vkBridge && !VK_DEBUG) {
+    console.info("VK debug is off. Enable with: localStorage.setItem(\"vkdebug\",\"1\"); location.reload();");
+  }
 
   window.__appLoaded = true;
   let story = null;
@@ -35,11 +192,14 @@
         await withTimeout(vkBridge.send("VKWebAppInit"), 1500);
         vkBridgeInited = true;
         window.__vkBridgeInited = true;
+        logVk("VK Bridge init ok");
       }
       const data = await withTimeout(vkBridge.send("VKWebAppGetUserInfo"), 1500);
+      logVk("VKWebAppGetUserInfo result:", data);
       return data && data.first_name ? data.first_name : DEFAULT_PLAYER_NAME;
     } catch (error) {
       console.warn("VK Bridge get name failed:", error);
+      logVk("VK Bridge get name failed:", error);
       return DEFAULT_PLAYER_NAME;
     }
   };
@@ -55,12 +215,15 @@
         await withTimeout(vkBridge.send("VKWebAppInit"), 1500);
         vkBridgeInited = true;
         window.__vkBridgeInited = true;
+        logVk("VK Bridge init ok");
       }
       await vkBridge.send("VKWebAppShowWallPostBox", {
         message: text,
       });
+      logVk("VKWebAppShowWallPostBox ok");
     } catch (error) {
       console.warn("VK Bridge share failed:", error);
+      logVk("VK Bridge share failed:", error);
     }
   };
 
@@ -175,7 +338,8 @@
       actions.className = "actions";
       actions.appendChild(
         createButton("Поделиться результатом", () => {
-          shareScene(scene.share_text || scene.text);
+          const shareText = safeText(scene.share_text || scene.text);
+          shareScene(shareText);
         })
       );
       actions.appendChild(
@@ -216,6 +380,7 @@
   };
 
   const init = async () => {
+    initDebugPanel();
     const response = await fetch("js/story.json", { cache: "no-store" });
     story = await response.json();
     const saved = localStorage.getItem(STORAGE_KEY);
