@@ -136,6 +136,17 @@ body {
   color: rgba(246, 243, 239, 0.6);
 }
 
+.share-status {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.share-status.error {
+  color: #f2b7b7;
+}
+
 .vk-debug {
   position: fixed;
   right: 12px;

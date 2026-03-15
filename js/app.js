@@ -229,10 +229,16 @@
     }
   };
 
-  const shareScene = async (text) => {
-    // Каркас интеграции VK Bridge для шеринга.
+  const setShareStatus = (node, text, isError = false) => {
+    if (!node) return;
+    node.textContent = text;
+    node.classList.toggle("error", isError);
+  };
+
+  const shareWall = async (text, statusNode) => {
     if (!vkBridge) {
-      console.log("share:", text);
+      console.log("share wall:", text);
+      setShareStatus(statusNode, "Шеринг на стену недоступен вне VK.");
       return;
     }
     try {
@@ -241,22 +247,37 @@
         message: text,
       });
       logVk("VKWebAppShowWallPostBox ok");
+      setShareStatus(statusNode, "Окно публикации открыто.");
     } catch (error) {
       console.warn("VK Bridge share failed:", error);
       logVk("VK Bridge share failed:", error);
-      try {
-        const link = getShareLink();
-        if (vkBridge.supports && vkBridge.supports("VKWebAppShowShareBox")) {
-          await sendVk("VKWebAppShowShareBox", { link });
-          logVk("VKWebAppShowShareBox ok");
-          return;
-        }
-        await sendVk("VKWebAppShare", { link });
-        logVk("VKWebAppShare ok");
-      } catch (fallbackError) {
-        console.warn("VK Bridge fallback share failed:", fallbackError);
-        logVk("VK Bridge fallback share failed:", fallbackError);
+      setShareStatus(statusNode, "На стену не получилось. В dev‑режиме это часто блокируется.", true);
+    }
+  };
+
+  const shareLink = async (statusNode) => {
+    if (!vkBridge) {
+      const link = getShareLink();
+      console.log("share link:", link);
+      setShareStatus(statusNode, "Ссылка выведена в консоль.");
+      return;
+    }
+    try {
+      await ensureVkInit();
+      const link = getShareLink();
+      if (vkBridge.supports && vkBridge.supports("VKWebAppShowShareBox")) {
+        await sendVk("VKWebAppShowShareBox", { link });
+        logVk("VKWebAppShowShareBox ok");
+        setShareStatus(statusNode, "Окно отправки открыто.");
+        return;
       }
+      await sendVk("VKWebAppShare", { link });
+      logVk("VKWebAppShare ok");
+      setShareStatus(statusNode, "Окно отправки открыто.");
+    } catch (error) {
+      console.warn("VK Bridge fallback share failed:", error);
+      logVk("VK Bridge fallback share failed:", error);
+      setShareStatus(statusNode, "Не удалось открыть окно отправки.", true);
     }
   };
 
@@ -369,10 +390,19 @@
 
       const actions = document.createElement("div");
       actions.className = "actions";
+      const shareStatus = document.createElement("div");
+      shareStatus.className = "share-status";
       actions.appendChild(
-        createButton("Поделиться результатом", () => {
+        createButton("Поделиться ссылкой", () => {
+          setShareStatus(shareStatus, "");
+          shareLink(shareStatus);
+        })
+      );
+      actions.appendChild(
+        createButton("Пост на стене", () => {
           const shareText = safeText(scene.share_text || scene.text);
-          shareScene(shareText);
+          setShareStatus(shareStatus, "");
+          shareWall(shareText, shareStatus);
         })
       );
       actions.appendChild(
@@ -381,6 +411,7 @@
           goTo(story.start);
         }, true)
       );
+      actions.appendChild(shareStatus);
       content.appendChild(actions);
     }
 
