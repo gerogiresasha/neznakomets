@@ -1636,7 +1636,7 @@
       "text": "Кафе рядом - через дорогу, стеклянные двери, запах и тепло. Он придерживает дверь. Не смотрит на тебя - смотрит внутрь. Столик у окна. Он садится спиной к залу. Ты напротив.",
       "character": null,
       "audio": null,
-      "background": "assets/images/bg_new_holland_together.png",
+      "background": "assets/images/bg_cafe_street.png",
       "next": "ch3_s1_narration_2b",
       "choices": null,
       "share_text": null
@@ -1648,7 +1648,7 @@
       "text": "Официант. Меню. Два американо. Без сахара. Он заказал за тебя. Не спросив. Молчание. За окном кто-то остановился, посмотрел в телефон, пошел дальше.",
       "character": null,
       "audio": null,
-      "background": "assets/images/bg_new_holland_together.png",
+      "background": "assets/images/bg_cafe_street.png",
       "next": "ch3_s1_player",
       "choices": null,
       "share_text": null
@@ -2354,7 +2354,7 @@
       "text": "Ты помнишь, что читала тогда.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_2.mp3",
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_player",
       "choices": null,
       "share_text": null
@@ -2366,7 +2366,7 @@
       "text": "Помню.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_narration_4",
       "choices": null,
       "share_text": null
@@ -2378,7 +2378,7 @@
       "text": "Он смотрит на дерево.",
       "character": null,
       "audio": null,
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_mark_3",
       "choices": null,
       "share_text": null
@@ -2390,7 +2390,7 @@
       "text": "Я дочитал до середины. Героиня уезжает. Не возвращается.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_3.mp3",
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_mark_4",
       "choices": null,
       "share_text": null
@@ -2402,7 +2402,7 @@
       "text": "Закрыл и выбросил.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_4.mp3",
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_narration_5",
       "choices": null,
       "share_text": null
@@ -2414,7 +2414,7 @@
       "text": "Ты смотришь на его руки. Лежат на коленях. Часы на левом запястье.",
       "character": null,
       "audio": null,
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_player_2",
       "choices": null,
       "share_text": null
@@ -2426,7 +2426,7 @@
       "text": "Зачем ты мне все это говоришь.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_narration_6",
       "choices": null,
       "share_text": null
@@ -2438,7 +2438,7 @@
       "text": "Он поворачивается. Смотрит на тебя.",
       "character": null,
       "audio": null,
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_mark_5",
       "choices": null,
       "share_text": null
@@ -2450,7 +2450,7 @@
       "text": "Потому что через четыре часа тебя здесь не будет.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_5.mp3",
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_mark_6",
       "choices": null,
       "share_text": null
@@ -2462,7 +2462,7 @@
       "text": "Которая всегда уходит.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_6.mp3",
-      "background": "assets/images/bg_courtyard.png",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_narration_7",
       "choices": null,
       "share_text": null
