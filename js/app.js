@@ -226,17 +226,7 @@
     if (!vkBridge) return DEFAULT_PLAYER_NAME;
     try {
       await ensureVkInit();
-      let data = null;
-      try {
-        data = await sendVk("VKWebAppGetUserInfo");
-      } catch (error) {
-        if (error && error.message === "timeout") {
-          await new Promise((resolve) => setTimeout(resolve, VK_BRIDGE_RETRY_DELAY_MS));
-          data = await sendVk("VKWebAppGetUserInfo");
-        } else {
-          throw error;
-        }
-      }
+      const data = await vkBridge.send("VKWebAppGetUserInfo");
       logVk("VKWebAppGetUserInfo result:", data);
       return data && data.first_name ? data.first_name : DEFAULT_PLAYER_NAME;
     } catch (error) {
@@ -244,6 +234,13 @@
       logVk("VK Bridge get name failed:", error);
       return DEFAULT_PLAYER_NAME;
     }
+  };
+
+  const shareScene = async (text) => {
+    const message = safeText(text);
+    if (!vkBridge) return;
+    await ensureVkInit();
+    await vkBridge.send("VKWebAppShowWallPostBox", { message });
   };
 
   const setShareStatus = (node, text, isError = false) => {
@@ -390,19 +387,6 @@
     const scene = story.scenes[currentSceneId];
     if (!scene) return;
 
-    if (scene.type === "share_card") {
-      if (skipDepth > 5) {
-        console.warn("share_card skip depth exceeded:", scene.id);
-        return;
-      }
-      if (scene.next) {
-        currentSceneId = scene.next;
-        return renderScene(skipDepth + 1);
-      }
-      console.warn("share_card without next:", scene.id);
-      return;
-    }
-
     saveProgress(currentSceneId);
     setBackground(scene);
     playAudio(scene);
@@ -431,6 +415,27 @@
           createButton(choice.text, () => goTo(choice.next))
         );
       });
+      content.appendChild(actions);
+    }
+
+    if (scene.type === "share_card") {
+      const text = document.createElement("div");
+      text.className = "narration";
+      text.textContent = safeText(scene.text);
+      content.appendChild(text);
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+      actions.appendChild(
+        createButton("Поделиться", () => {
+          shareScene(scene.share_text || scene.text || "");
+        })
+      );
+      actions.appendChild(
+        createButton("Далее", () => {
+          if (scene.next) goTo(scene.next);
+        }, true)
+      );
       content.appendChild(actions);
     }
 
@@ -490,7 +495,7 @@
 
   const init = async () => {
     initDebugPanel();
-    const response = await fetch("js/story.json", { cache: "no-store" });
+    const response = await fetch("story.json", { cache: "no-store" });
     story = await response.json();
     const saved = localStorage.getItem(STORAGE_KEY);
     currentSceneId = saved && story.scenes[saved] ? saved : story.start;

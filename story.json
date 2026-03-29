@@ -4,10 +4,34 @@
       "id": "ch1_s1_narration",
       "chapter": 1,
       "type": "narration",
-      "text": "Три дня. Ты лежишь на кровати в комнате, которая уже наполовину не твоя. Книги в коробках, полки пустые. На стене светлый прямоугольник - здесь висела полка с его книгами. Забрал книги, полку снимать не стал. Ты сняла сама. Его вещей больше нет. Забрал, пока тебя не было. Ключ прислал по почте - в конверте, без записки. Его зарядка все еще торчит из розетки у кровати. В ноябре день кончается быстро. Билет куплен три дня назад. Ты никому не говорила. Нечего объяснять - и некому. Телефон на груди. Экран загорается. Telegram. Незнакомый номер. Без фото, без имени.",
+      "text": "Три дня. Ты лежишь на кровати в комнате, которая уже наполовину не твоя. Книги в коробках, полки пустые. На стене светлый прямоугольник - здесь висела полка с его книгами. Забрал книги, полку снимать не стал. Ты сняла сама.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s1_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
+      "next": "ch1_s1_narration_p2",
+      "choices": null,
+      "share_text": null
+    },
+    "ch1_s1_narration_p2": {
+      "id": "ch1_s1_narration_p2",
+      "chapter": 1,
+      "type": "narration",
+      "text": "Его вещей больше нет. Забрал, пока тебя не было. Ключ прислал по почте - в конверте, без записки. Его зарядка все еще торчит из розетки у кровати.",
+      "character": null,
+      "audio": null,
+      "background": "assets/images/bg_bedroom_night.png",
+      "next": "ch1_s1_narration_p3",
+      "choices": null,
+      "share_text": null
+    },
+    "ch1_s1_narration_p3": {
+      "id": "ch1_s1_narration_p3",
+      "chapter": 1,
+      "type": "narration",
+      "text": "В ноябре день кончается быстро. Билет куплен три дня назад. Ты никому не говорила. Нечего объяснять - и некому. Телефон на груди. Экран загорается. Telegram. Незнакомый номер. Без фото, без имени.",
+      "character": null,
+      "audio": null,
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s1_mark",
       "choices": null,
       "share_text": null
@@ -19,7 +43,7 @@
       "text": "Ты сегодня была на набережной?",
       "character": "mark",
       "audio": "assets/audio/ch1_s1_mark.mp3",
-      "background": "assets/images/ch1_s1_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s1_narration_2",
       "choices": null,
       "share_text": null
@@ -31,7 +55,7 @@
       "text": "Ты смотришь на сообщение. Ошибся номером. Бывает.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s1_narration_2.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s1_choice",
       "choices": null,
       "share_text": null
@@ -43,7 +67,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s1_choice.webp",
+      "background": "assets/images/bg_choice_dark.png",
       "next": null,
       "choices": [
         {
@@ -64,7 +88,7 @@
       "text": "Ты отправляешь и кладешь телефон обратно. Закрываешь глаза. Через семь секунд вибрация.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s1_a_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s1_a_mark",
       "choices": null,
       "share_text": null
@@ -76,7 +100,7 @@
       "text": "Нет. Не ошибся. Привет, {{name}}.",
       "character": "mark",
       "audio": "assets/audio/ch1_s1_a_mark.mp3",
-      "background": "assets/images/ch1_s1_a_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s1_a_narration_2",
       "choices": null,
       "share_text": null
@@ -88,7 +112,7 @@
       "text": "Ты садишься. Имя. Ты не называла этому человеку своего имени.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s1_a_narration_2.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s1_a_share",
       "choices": null,
       "share_text": null
@@ -100,7 +124,7 @@
       "text": "Мне написал незнакомец. Я ответила - ошиблись номером. Он сказал, что нет. И написал мое имя.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s1_a_share.webp",
+      "background": "assets/images/bg_share_bedroom.png",
       "next": "ch1_s2_a_narration",
       "choices": null,
       "share_text": "Мне написал незнакомец. Я ответила - ошиблись номером. Он сказал, что нет. И написал мое имя."
@@ -112,7 +136,7 @@
       "text": "Ты гасишь экран. Коробки, пустые стены, тишина. Хватит незнакомого на сегодня. Через четыре минуты - снова.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s1_b_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s1_b_mark",
       "choices": null,
       "share_text": null
@@ -124,7 +148,7 @@
       "text": "Привет, {{name}}.",
       "character": "mark",
       "audio": "assets/audio/ch1_s1_b_mark.mp3",
-      "background": "assets/images/ch1_s1_b_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s1_b_narration_2",
       "choices": null,
       "share_text": null
@@ -136,7 +160,7 @@
       "text": "Два слова. Ни объяснений, ни извинений. Просто имя. Ты не давала ему номер. Не говорила имя. Ты вообще ничего не говорила.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s1_b_narration_2.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s1_b_share",
       "choices": null,
       "share_text": null
@@ -148,7 +172,7 @@
       "text": "Мне написал незнакомец. Я не ответила. Он написал снова. Он знал мое имя.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s1_b_share.webp",
+      "background": "assets/images/bg_share_bedroom.png",
       "next": "ch1_s2_b_narration",
       "choices": null,
       "share_text": "Мне написал незнакомец. Я не ответила. Он написал снова. Он знал мое имя."
@@ -160,7 +184,7 @@
       "text": "Ты смотришь на экран. Минуту. Две. Потом пишешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s2_a_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s2_player",
       "choices": null,
       "share_text": null
@@ -172,7 +196,7 @@
       "text": "Его слова не отпускают. Ты открываешь чат.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s2_b_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s2_player",
       "choices": null,
       "share_text": null
@@ -184,7 +208,7 @@
       "text": "Кто ты?",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch1_s2_player.webp",
+      "background": "assets/images/bg_bedroom_player.png",
       "next": "ch1_s2_narration",
       "choices": null,
       "share_text": null
@@ -196,7 +220,7 @@
       "text": "Пауза. Ты ждешь. За последний месяц к этому привыкаешь - ждать ответа, которого не будет. Потом:",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s2_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s2_mark",
       "choices": null,
       "share_text": null
@@ -208,7 +232,7 @@
       "text": "Ты всегда брала американо без сахара. С тех пор что-нибудь изменилось?",
       "character": "mark",
       "audio": "assets/audio/ch1_s2_mark.mp3",
-      "background": "assets/images/ch1_s2_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s2_narration_2",
       "choices": null,
       "share_text": null
@@ -220,7 +244,7 @@
       "text": "Ты не двигаешься. Телефон в руках, пальцы холодные.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s2_narration_2.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s2_choice",
       "choices": null,
       "share_text": null
@@ -232,7 +256,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s2_choice.webp",
+      "background": "assets/images/bg_choice_dark.png",
       "next": null,
       "choices": [
         {
@@ -253,7 +277,7 @@
       "text": "Отправлено. Ты ждешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s2_a2_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s2_a2_mark",
       "choices": null,
       "share_text": null
@@ -265,7 +289,7 @@
       "text": "Нет. Я помню.",
       "character": "mark",
       "audio": "assets/audio/ch1_s2_a2_mark.mp3",
-      "background": "assets/images/ch1_s2_a2_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s2_share",
       "choices": null,
       "share_text": null
@@ -277,7 +301,7 @@
       "text": "Ты держишь телефон. Не откладываешь. Через полминуты.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s2_b2_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s2_b2_mark",
       "choices": null,
       "share_text": null
@@ -289,7 +313,7 @@
       "text": "Ты сейчас перечитываешь. Я знаю.",
       "character": "mark",
       "audio": "assets/audio/ch1_s2_b2_mark.mp3",
-      "background": "assets/images/ch1_s2_b2_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s2_b2_narration_2",
       "choices": null,
       "share_text": null
@@ -301,7 +325,7 @@
       "text": "Ты кладешь телефон экраном вниз. Он присылает еще.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s2_b2_narration_2.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s2_b2_mark_2",
       "choices": null,
       "share_text": null
@@ -313,7 +337,7 @@
       "text": "Я не слежу. Я помню.",
       "character": "mark",
       "audio": "assets/audio/ch1_s2_b2_mark_2.mp3",
-      "background": "assets/images/ch1_s2_b2_mark_2.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s2_share",
       "choices": null,
       "share_text": null
@@ -325,7 +349,7 @@
       "text": "Незнакомец знает, какой кофе я пью. Говорит - не слежу, просто помню.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s2_share.webp",
+      "background": "assets/images/bg_share_bedroom.png",
       "next": "ch1_s3_narration",
       "choices": null,
       "share_text": "Незнакомец знает, какой кофе я пью. Говорит - не слежу, просто помню."
@@ -337,7 +361,7 @@
       "text": "\"Я помню.\" Ты пишешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s3_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s3_player",
       "choices": null,
       "share_text": null
@@ -349,7 +373,7 @@
       "text": "Что тебе от меня нужно?",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch1_s3_player.webp",
+      "background": "assets/images/bg_bedroom_player.png",
       "next": "ch1_s3_narration_2",
       "choices": null,
       "share_text": null
@@ -361,7 +385,7 @@
       "text": "Почти минута тишины. За окном где-то хлопнула дверь подъезда. Потом:",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s3_narration_2.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s3_mark",
       "choices": null,
       "share_text": null
@@ -373,7 +397,7 @@
       "text": "Ничего. Уже ничего.",
       "character": "mark",
       "audio": "assets/audio/ch1_s3_mark.mp3",
-      "background": "assets/images/ch1_s3_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s3_narration_3",
       "choices": null,
       "share_text": null
@@ -385,7 +409,7 @@
       "text": "\"Уже.\" Это слово отдельно от остальных. Ты пишешь. Руки холодные.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s3_narration_3.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s3_player_2",
       "choices": null,
       "share_text": null
@@ -397,7 +421,7 @@
       "text": "Тогда зачем написал?",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch1_s3_player_2.webp",
+      "background": "assets/images/bg_bedroom_player.png",
       "next": "ch1_s3_mark_2",
       "choices": null,
       "share_text": null
@@ -409,7 +433,7 @@
       "text": "Потому что скоро будет поздно.",
       "character": "mark",
       "audio": "assets/audio/ch1_s3_mark_2.mp3",
-      "background": "assets/images/ch1_s3_mark_2.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s3_narration_4",
       "choices": null,
       "share_text": null
@@ -421,7 +445,7 @@
       "text": "Поздно для чего? Ты сидишь на кровати среди коробок. Через три дня тебя здесь не будет. Кто-то это знает.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s3_narration_4.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s3_choice",
       "choices": null,
       "share_text": null
@@ -433,7 +457,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s3_choice.webp",
+      "background": "assets/images/bg_choice_dark.png",
       "next": null,
       "choices": [
         {
@@ -454,7 +478,7 @@
       "text": "Ты ведь уже купила билет.",
       "character": "mark",
       "audio": "assets/audio/ch1_s3_a_mark.mp3",
-      "background": "assets/images/ch1_s3_a_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s3_a_narration",
       "choices": null,
       "share_text": null
@@ -466,7 +490,7 @@
       "text": "Ты перечитываешь. Потом еще раз. Билет. Скриншот лежит в галерее. Ты не отправляла его никому. Ни одному человеку.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s3_a_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s3_merge_narration",
       "choices": null,
       "share_text": null
@@ -478,7 +502,7 @@
       "text": "Он не отвечает на вопрос.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s3_b_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s3_b_mark",
       "choices": null,
       "share_text": null
@@ -490,7 +514,7 @@
       "text": "Неважно. Лучше скажи - ты ведь уже купила билет?",
       "character": "mark",
       "audio": "assets/audio/ch1_s3_b_mark.mp3",
-      "background": "assets/images/ch1_s3_b_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s3_merge_narration",
       "choices": null,
       "share_text": null
@@ -502,7 +526,7 @@
       "text": "Ты купила его три дня назад. Тем же вечером, когда получила конверт с ключом. Не сказала никому.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s3_merge_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s3_share",
       "choices": null,
       "share_text": null
@@ -514,7 +538,7 @@
       "text": "Он написал - скоро будет поздно. Потом спросил про билет. Я никому не говорила, что уезжаю.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s3_share.webp",
+      "background": "assets/images/bg_share_bedroom.png",
       "next": "ch1_s4_narration",
       "choices": null,
       "share_text": "Он написал - скоро будет поздно. Потом спросил про билет. Я никому не говорила, что уезжаю."
@@ -526,7 +550,7 @@
       "text": "\"Ты ведь уже купила билет.\" Ты встаешь. Подходишь к окну. Двор, фонарь, чья-то машина. Садишься на подоконник. Пишешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s4_narration.webp",
+      "background": "assets/images/bg_bedroom_window.png",
       "next": "ch1_s4_player",
       "choices": null,
       "share_text": null
@@ -538,7 +562,7 @@
       "text": "Откуда ты знаешь про билет.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch1_s4_player.webp",
+      "background": "assets/images/bg_bedroom_player.png",
       "next": "ch1_s4_mark",
       "choices": null,
       "share_text": null
@@ -550,7 +574,7 @@
       "text": "Я знаю многое о тебе.",
       "character": "mark",
       "audio": "assets/audio/ch1_s4_mark.mp3",
-      "background": "assets/images/ch1_s4_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s4_narration_2",
       "choices": null,
       "share_text": null
@@ -562,7 +586,7 @@
       "text": "Ты пишешь быстро, не думая.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s4_narration_2.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s4_player_2",
       "choices": null,
       "share_text": null
@@ -574,7 +598,7 @@
       "text": "Я позвоню в полицию.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch1_s4_player_2.webp",
+      "background": "assets/images/bg_bedroom_player.png",
       "next": "ch1_s4_mark_2",
       "choices": null,
       "share_text": null
@@ -586,7 +610,7 @@
       "text": "Окей.",
       "character": "mark",
       "audio": "assets/audio/ch1_s4_mark_2.mp3",
-      "background": "assets/images/ch1_s4_mark_2.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s4_narration_3",
       "choices": null,
       "share_text": null
@@ -598,7 +622,7 @@
       "text": "Одно слово. Спокойно. Виноватые так не отвечают. Ты дышишь глубже. Пишешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s4_narration_3.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s4_choice",
       "choices": null,
       "share_text": null
@@ -610,7 +634,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s4_choice.webp",
+      "background": "assets/images/bg_choice_dark.png",
       "next": null,
       "choices": [
         {
@@ -631,7 +655,7 @@
       "text": "Ты училась на Васильевском. Третья парта слева. Всегда приходила за пять минут до начала.",
       "character": "mark",
       "audio": "assets/audio/ch1_s4_a_mark.mp3",
-      "background": "assets/images/ch1_s4_a_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s4_a_narration",
       "choices": null,
       "share_text": null
@@ -643,7 +667,7 @@
       "text": "Васильевский. Университетская набережная, третий корпус. Это было шесть лет назад.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s4_a_narration.webp",
+      "background": "assets/images/bg_university.png",
       "next": "ch1_s4_merge_narration",
       "choices": null,
       "share_text": null
@@ -655,7 +679,7 @@
       "text": "Ты училась на Васильевском. Третья парта слева. Я сидел в последнем ряду.",
       "character": "mark",
       "audio": "assets/audio/ch1_s4_b_mark.mp3",
-      "background": "assets/images/ch1_s4_b_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s4_b_narration",
       "choices": null,
       "share_text": null
@@ -667,7 +691,7 @@
       "text": "Он ответил сам. Без вопроса. Васильевский. Шесть лет назад.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s4_b_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s4_merge_narration",
       "choices": null,
       "share_text": null
@@ -679,7 +703,7 @@
       "text": "Шесть лет назад. Другая жизнь. Ты пишешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s4_merge_narration.webp",
+      "background": "assets/images/bg_bedroom_window.png",
       "next": "ch1_s4_player_3",
       "choices": null,
       "share_text": null
@@ -691,7 +715,7 @@
       "text": "Я тебя не помню.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch1_s4_player_3.webp",
+      "background": "assets/images/bg_bedroom_window.png",
       "next": "ch1_s4_mark_3",
       "choices": null,
       "share_text": null
@@ -703,7 +727,7 @@
       "text": "Я знаю.",
       "character": "mark",
       "audio": "assets/audio/ch1_s4_mark_3.mp3",
-      "background": "assets/images/ch1_s4_mark_3.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s4_share",
       "choices": null,
       "share_text": null
@@ -715,7 +739,7 @@
       "text": "Он помнит, где я училась шесть лет назад. Мою парту, во сколько приходила. Я написала - не помню тебя. Он ответил: я знаю.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s4_share.webp",
+      "background": "assets/images/bg_share_bedroom.png",
       "next": "ch1_s5_narration",
       "choices": null,
       "share_text": "Он помнит, где я училась шесть лет назад. Мою парту, во сколько приходила. Я написала - не помню тебя. Он ответил: я знаю."
@@ -727,7 +751,7 @@
       "text": "\"Я знаю.\" За окном стало совсем темно. Ты не заметила когда. Пишешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s5_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s5_player",
       "choices": null,
       "share_text": null
@@ -739,7 +763,7 @@
       "text": "Как тебя зовут?",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch1_s5_player.webp",
+      "background": "assets/images/bg_bedroom_player.png",
       "next": "ch1_s5_narration_2",
       "choices": null,
       "share_text": null
@@ -751,7 +775,7 @@
       "text": "Впервые за весь вечер ты спрашиваешь о нем. Долгая пауза.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s5_narration_2.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s5_mark",
       "choices": null,
       "share_text": null
@@ -763,7 +787,7 @@
       "text": "Марк.",
       "character": "mark",
       "audio": "assets/audio/ch1_s5_mark.mp3",
-      "background": "assets/images/ch1_s5_mark.webp",
+      "background": "assets/images/bg_bedroom_phone.png",
       "next": "ch1_s5_narration_3",
       "choices": null,
       "share_text": null
@@ -775,7 +799,7 @@
       "text": "Одно слово. Но первое, что он сказал о себе.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s5_narration_3.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s5_choice",
       "choices": null,
       "share_text": null
@@ -787,7 +811,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s5_choice.webp",
+      "background": "assets/images/bg_choice_dark.png",
       "next": null,
       "choices": [
         {
@@ -808,7 +832,7 @@
       "text": "Ты отправляешь и смотришь на его имя в чате. Он не отвечает. Пять минут. Десять. Ты ставишь телефон на зарядку. Ложишься. Не спишь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s5_a_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s5_cliff_narration",
       "choices": null,
       "share_text": null
@@ -820,7 +844,7 @@
       "text": "Отправлено. Две галочки - быстро. Прочитал. Не отвечает. Ты кладешь телефон на тумбочку. Ложишься. Потолок тот же, стены те же. Только теперь кто-то знает, что ты здесь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s5_b_narration.webp",
+      "background": "assets/images/bg_bedroom_night.png",
       "next": "ch1_s5_cliff_narration",
       "choices": null,
       "share_text": null
@@ -832,7 +856,7 @@
       "text": "Утро. Телефон на тумбочке. Одно сообщение. Отправлено в 4:17.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s5_cliff_narration.webp",
+      "background": "assets/images/bg_bedroom_dawn.png",
       "next": "ch1_s5_cliff_mark",
       "choices": null,
       "share_text": null
@@ -844,7 +868,7 @@
       "text": "Я не должен был тебя найти.",
       "character": "mark",
       "audio": "assets/audio/ch1_s5_cliff_mark.mp3",
-      "background": "assets/images/ch1_s5_cliff_mark.webp",
+      "background": "assets/images/bg_bedroom_dawn.png",
       "next": "ch1_s5_share",
       "choices": null,
       "share_text": null
@@ -856,7 +880,7 @@
       "text": "Весь вечер он знал обо мне все. Назвал свое имя только под утро. А в 4:17 написал: я не должен был тебя найти.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch1_s5_share.webp",
+      "background": "assets/images/bg_share_bedroom.png",
       "next": "ch2_s1_narration",
       "choices": null,
       "share_text": "Весь вечер он знал обо мне все. Назвал свое имя только под утро. А в 4:17 написал: я не должен был тебя найти."
@@ -865,10 +889,34 @@
       "id": "ch2_s1_narration",
       "chapter": 2,
       "type": "narration",
-      "text": "Серое утро. Другого в ноябре не бывает. Ты лежишь и смотришь в потолок. Телефон рядом - где оставила ночью. Два дня до отъезда. Ты открываешь переписку и листаешь вверх. Медленно. Останавливаешься. \"Скоро будет поздно.\" Он написал это до того, как ты сказала хоть слово про отъезд. До. Ты угрожала полицией - он ответил \"окей\". Потом был Васильевский, имя, четыре семнадцать утра. \"Поздно\" он написал в самом начале. Ты пишешь.",
+      "text": "Серое утро. Другого в ноябре не бывает. Ты лежишь и смотришь в потолок. Телефон рядом - где оставила ночью. Два дня до отъезда.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s1_narration.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
+      "next": "ch2_s1_narration_p2",
+      "choices": null,
+      "share_text": null
+    },
+    "ch2_s1_narration_p2": {
+      "id": "ch2_s1_narration_p2",
+      "chapter": 2,
+      "type": "narration",
+      "text": "Ты открываешь переписку и листаешь вверх. Медленно. Останавливаешься. \"Скоро будет поздно.\" Он написал это до того, как ты сказала хоть слово про отъезд. До.",
+      "character": null,
+      "audio": null,
+      "background": "assets/images/bg_bedroom_grey.png",
+      "next": "ch2_s1_narration_p3",
+      "choices": null,
+      "share_text": null
+    },
+    "ch2_s1_narration_p3": {
+      "id": "ch2_s1_narration_p3",
+      "chapter": 2,
+      "type": "narration",
+      "text": "Ты угрожала полицией - он ответил \"окей\". Потом был Васильевский, имя, четыре семнадцать утра. \"Поздно\" он написал в самом начале. Ты пишешь.",
+      "character": null,
+      "audio": null,
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s1_player",
       "choices": null,
       "share_text": null
@@ -880,7 +928,7 @@
       "text": "Ты написал скоро будет поздно. Раньше, чем узнал про отъезд. Что ты имел в виду.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch2_s1_player.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s1_narration_2",
       "choices": null,
       "share_text": null
@@ -892,7 +940,7 @@
       "text": "Отправлено. Серые галочки. Синеют. Тишина.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s1_narration_2.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s1_share",
       "choices": null,
       "share_text": null
@@ -904,7 +952,7 @@
       "text": "Он написал 'скоро будет поздно' раньше, чем узнал про отъезд. Я спросила. Он прочитал. Не ответил.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s1_share.webp",
+      "background": "assets/images/bg_share_ch2.png",
       "next": "ch2_s2_narration",
       "choices": null,
       "share_text": "Он написал 'скоро будет поздно' раньше, чем узнал про отъезд. Я спросила. Он прочитал. Не ответил."
@@ -916,7 +964,7 @@
       "text": "Телефон молчит час. Ты убираешь его в карман, достаешь, убираешь. Коробки у стены. Открываешь одну - внутри кружка, которую он подарил на второй месяц. Закрываешь. Сообщение приходит через несколько часов.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_narration.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s2_mark",
       "choices": null,
       "share_text": null
@@ -928,7 +976,7 @@
       "text": "Я уехал из Питера на следующий день после того, как ты вывесила оценки.",
       "character": "mark",
       "audio": "assets/audio/ch2_s2_mark.mp3",
-      "background": "assets/images/ch2_s2_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s2_narration_2",
       "choices": null,
       "share_text": null
@@ -940,7 +988,7 @@
       "text": "Ты перечитываешь. Не \"скоро будет поздно\". Не билет. Оценки. Ты была старостой на втором курсе. Распечатывала списки, вешала на стенд у деканата. Это помнят человек пять. Ты пишешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_narration_2.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s2_player",
       "choices": null,
       "share_text": null
@@ -952,7 +1000,7 @@
       "text": "Куда уехал.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch2_s2_player.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s2_mark_2",
       "choices": null,
       "share_text": null
@@ -964,7 +1012,7 @@
       "text": "Далеко.",
       "character": "mark",
       "audio": "assets/audio/ch2_s2_mark_2.mp3",
-      "background": "assets/images/ch2_s2_mark_2.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s2_narration_3",
       "choices": null,
       "share_text": null
@@ -976,7 +1024,7 @@
       "text": "Больше ничего. Продолжения нет.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_narration_3.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s2_choice",
       "choices": null,
       "share_text": null
@@ -988,7 +1036,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_choice.webp",
+      "background": "assets/images/bg_choice_grey.png",
       "next": null,
       "choices": [
         {
@@ -1009,7 +1057,7 @@
       "text": "Ты отправляешь и ждешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_a_narration.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s2_a_mark",
       "choices": null,
       "share_text": null
@@ -1021,7 +1069,7 @@
       "text": "Ты никогда не смотрела в мою сторону.",
       "character": "mark",
       "audio": "assets/audio/ch2_s2_a_mark.mp3",
-      "background": "assets/images/ch2_s2_a_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s2_a_narration_2",
       "choices": null,
       "share_text": null
@@ -1033,7 +1081,7 @@
       "text": "Несколько слов. Без обиды, без упрека. Констатация.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_a_narration_2.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s2_cliff_mark",
       "choices": null,
       "share_text": null
@@ -1045,7 +1093,7 @@
       "text": "Молчит дольше обычного.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_b_narration.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s2_b_mark",
       "choices": null,
       "share_text": null
@@ -1057,7 +1105,7 @@
       "text": "Один из нас должен был уехать.",
       "character": "mark",
       "audio": "assets/audio/ch2_s2_b_mark.mp3",
-      "background": "assets/images/ch2_s2_b_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s2_b_narration_2",
       "choices": null,
       "share_text": null
@@ -1069,7 +1117,7 @@
       "text": "Пауза. Потом еще сообщение.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_b_narration_2.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s2_b_mark_2",
       "choices": null,
       "share_text": null
@@ -1081,7 +1129,7 @@
       "text": "Ты однажды чуть не написала мне. Два года назад.",
       "character": "mark",
       "audio": "assets/audio/ch2_s2_b_mark_2.mp3",
-      "background": "assets/images/ch2_s2_b_mark_2.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s2_b_narration_3",
       "choices": null,
       "share_text": null
@@ -1093,7 +1141,7 @@
       "text": "Ты смотришь на экран. Не помнишь. Или не хочешь вспоминать.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_b_narration_3.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s2_cliff_mark",
       "choices": null,
       "share_text": null
@@ -1105,7 +1153,7 @@
       "text": "Ты сейчас пакуешь вещи?",
       "character": "mark",
       "audio": "assets/audio/ch2_s2_cliff_mark.mp3",
-      "background": "assets/images/ch2_s2_cliff_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s2_share",
       "choices": null,
       "share_text": null
@@ -1117,7 +1165,7 @@
       "text": "Он уехал из Питера на следующий день после того, как я вывесила оценки. Шесть лет назад. Потом спросил - ты сейчас пакуешь вещи?",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s2_share.webp",
+      "background": "assets/images/bg_share_ch2.png",
       "next": "ch2_s3_narration",
       "choices": null,
       "share_text": "Он уехал из Питера на следующий день после того, как я вывесила оценки. Шесть лет назад. Потом спросил - ты сейчас пакуешь вещи?"
@@ -1129,7 +1177,7 @@
       "text": "Ты смотришь на вопрос. Потом на коробки. Кружка, свитера, зарядка без телефона. Пишешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s3_narration.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s3_player",
       "choices": null,
       "share_text": null
@@ -1141,7 +1189,7 @@
       "text": "Да.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch2_s3_player.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s3_narration_2",
       "choices": null,
       "share_text": null
@@ -1153,7 +1201,7 @@
       "text": "Одна буква. Пауза. Потом:",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s3_narration_2.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s3_mark",
       "choices": null,
       "share_text": null
@@ -1165,7 +1213,7 @@
       "text": "Оставь одну вещь. Которую не хочешь брать, но все равно возьмешь.",
       "character": "mark",
       "audio": "assets/audio/ch2_s3_mark.mp3",
-      "background": "assets/images/ch2_s3_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s3_narration_3",
       "choices": null,
       "share_text": null
@@ -1177,7 +1225,7 @@
       "text": "Ты смотришь на шкаф. Серая куртка висит отдельно от остальных вещей.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s3_narration_3.webp",
+      "background": "assets/images/bg_wardrobe.png",
       "next": "ch2_s3_player_2",
       "choices": null,
       "share_text": null
@@ -1189,7 +1237,7 @@
       "text": "Откуда ты знаешь, что такая есть?",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch2_s3_player_2.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s3_mark_2",
       "choices": null,
       "share_text": null
@@ -1201,7 +1249,7 @@
       "text": "У всех есть такая вещь.",
       "character": "mark",
       "audio": "assets/audio/ch2_s3_mark_2.mp3",
-      "background": "assets/images/ch2_s3_mark_2.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s3_choice",
       "choices": null,
       "share_text": null
@@ -1213,7 +1261,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s3_choice.webp",
+      "background": "assets/images/bg_choice_grey.png",
       "next": null,
       "choices": [
         {
@@ -1234,7 +1282,7 @@
       "text": "Он не отвечает долго. Дольше, чем за весь день.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s3_a_narration.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s3_a_mark",
       "choices": null,
       "share_text": null
@@ -1246,7 +1294,7 @@
       "text": "Новая Голландия. Завтра в двенадцать.",
       "character": "mark",
       "audio": "assets/audio/ch2_s3_a_mark.mp3",
-      "background": "assets/images/ch2_s3_a_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s3_a_narration_2",
       "choices": null,
       "share_text": null
@@ -1258,7 +1306,7 @@
       "text": "Не ответ. Место и время.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s3_a_narration_2.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s3_cliff_mark",
       "choices": null,
       "share_text": null
@@ -1270,7 +1318,7 @@
       "text": "Пауза.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s3_b_narration.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s3_b_mark",
       "choices": null,
       "share_text": null
@@ -1282,7 +1330,7 @@
       "text": "Новая Голландия. Завтра в двенадцать.",
       "character": "mark",
       "audio": "assets/audio/ch2_s3_b_mark.mp3",
-      "background": "assets/images/ch2_s3_b_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s3_b_narration_2",
       "choices": null,
       "share_text": null
@@ -1294,7 +1342,7 @@
       "text": "Не ответ. Место и время, и все.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s3_b_narration_2.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s3_cliff_mark",
       "choices": null,
       "share_text": null
@@ -1306,7 +1354,7 @@
       "text": "Я в Питере.",
       "character": "mark",
       "audio": "assets/audio/ch2_s3_cliff_mark.mp3",
-      "background": "assets/images/ch2_s3_cliff_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s3_share",
       "choices": null,
       "share_text": null
@@ -1318,7 +1366,7 @@
       "text": "Он спросил, пакую ли я вещи. Я ответила 'да'. Он сказал - оставь одну вещь, которую не хочешь брать. Такая есть. А потом написал: я в Питере.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s3_share.webp",
+      "background": "assets/images/bg_share_ch2.png",
       "next": "ch2_s4_narration",
       "choices": null,
       "share_text": "Он спросил, пакую ли я вещи. Я ответила 'да'. Он сказал - оставь одну вещь, которую не хочешь брать. Такая есть. А потом написал: я в Питере."
@@ -1330,7 +1378,7 @@
       "text": "\"Я в Питере.\" Ты смотришь на сообщение. Он не спросил, придешь ли. Поставил время и место - и все. Три часа ты не отвечаешь. Сидишь на полу рядом с коробками. Открываешь шкаф. Серая куртка висит одна.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s4_narration.webp",
+      "background": "assets/images/bg_wardrobe.png",
       "next": "ch2_s4_choice",
       "choices": null,
       "share_text": null
@@ -1342,7 +1390,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s4_choice.webp",
+      "background": "assets/images/bg_choice_grey.png",
       "next": null,
       "choices": [
         {
@@ -1363,7 +1411,7 @@
       "text": "Отправлено. Больше ничего.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s4_a_narration.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s4_merge_narration",
       "choices": null,
       "share_text": null
@@ -1375,7 +1423,7 @@
       "text": "Хорошо.",
       "character": "mark",
       "audio": "assets/audio/ch2_s4_a_mark.mp3",
-      "background": "assets/images/ch2_s4_a_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s4_a_narration",
       "choices": null,
       "share_text": null
@@ -1387,7 +1435,7 @@
       "text": "Он не отвечает.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s4_b_narration.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s4_b_mark",
       "choices": null,
       "share_text": null
@@ -1399,7 +1447,7 @@
       "text": "Я никуда не уезжал.",
       "character": "mark",
       "audio": "assets/audio/ch2_s4_b_mark.mp3",
-      "background": "assets/images/ch2_s4_b_mark.webp",
+      "background": "assets/images/bg_bedroom_grey_phone.png",
       "next": "ch2_s4_b_narration_2",
       "choices": null,
       "share_text": null
@@ -1411,7 +1459,7 @@
       "text": "Он сказал, что уехал шесть лет назад. Теперь - что никуда не уезжал. Ты смотришь на оба сообщения и понимаешь. \"Далеко\" - это не про расстояние.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s4_b_narration_2.webp",
+      "background": "assets/images/bg_bedroom_grey.png",
       "next": "ch2_s4_merge_narration",
       "choices": null,
       "share_text": null
@@ -1423,7 +1471,7 @@
       "text": "Телефон на столе. Ты идешь в ванную. Возвращаешься. Открываешь шкаф. Смотришь на серую куртку. Закрываешь. Ложишься, не ответив. Утро. Последнее утро в этой квартире. Ты стоишь у зеркала. Серая куртка на плечах. До двенадцати два часа. Ты ничего не ответила. Ты уже одета.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s4_merge_narration.webp",
+      "background": "assets/images/bg_bedroom_mirror.png",
       "next": "ch2_s4_share",
       "choices": null,
       "share_text": null
@@ -1435,7 +1483,7 @@
       "text": "Он написал место и время. Я не ответила. Утром надела куртку, которую собиралась оставить.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s4_share.webp",
+      "background": "assets/images/bg_share_ch2.png",
       "next": "ch2_s5_narration",
       "choices": null,
       "share_text": "Он написал место и время. Я не ответила. Утром надела куртку, которую собиралась оставить."
@@ -1447,7 +1495,7 @@
       "text": "Ты выходишь из дома в 11:42. Замок щелкает за спиной. Метро. Две остановки. Эскалатор вверх. Без пяти двенадцать. Ветер с канала, серое небо, деревья без листьев. Новая Голландия. Ты останавливаешься у входа. Людей немного - холод, будний день.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s5_narration.webp",
+      "background": "assets/images/bg_new_holland_outside.png",
       "next": "ch2_s5_choice",
       "choices": null,
       "share_text": null
@@ -1459,7 +1507,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s5_choice.webp",
+      "background": "assets/images/bg_new_holland_outside.png",
       "next": null,
       "choices": [
         {
@@ -1480,7 +1528,7 @@
       "text": "Ты входишь. Он стоит у лавочки, спиной. Темное пальто, руки в карманах. Ты идешь к нему. Он оборачивается раньше, чем ты успеваешь остановиться. Смотрит.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s5_a_narration.webp",
+      "background": "assets/images/bg_new_holland_mark.png",
       "next": "ch2_s5_merge_narration",
       "choices": null,
       "share_text": null
@@ -1492,7 +1540,7 @@
       "text": "Сообщение уходит. Секунда. Он выходит из-за деревьев - не с лавочки, не из кафе. Стоял в стороне. Телефон убирает не глядя. Смотрит на тебя. Он был здесь раньше.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s5_b_narration.webp",
+      "background": "assets/images/bg_new_holland_mark.png",
       "next": "ch2_s5_merge_narration",
       "choices": null,
       "share_text": null
@@ -1504,7 +1552,7 @@
       "text": "Лицо. Обычное лицо. Не красивое, не страшное - знакомое. Из тех, мимо которых проходишь каждый день. Он делает шаг.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s5_merge_narration.webp",
+      "background": "assets/images/bg_new_holland_together.png",
       "next": "ch2_s5_mark",
       "choices": null,
       "share_text": null
@@ -1516,7 +1564,7 @@
       "text": "Привет.",
       "character": "mark",
       "audio": "assets/audio/ch2_s5_mark.mp3",
-      "background": "assets/images/ch2_s5_mark.webp",
+      "background": "assets/images/bg_new_holland_together.png",
       "next": "ch2_s5_narration_2",
       "choices": null,
       "share_text": null
@@ -1528,7 +1576,7 @@
       "text": "Голос тише, чем ты ожидала. Он смотрит на куртку. Потом на тебя. Не вопрос.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s5_narration_2.webp",
+      "background": "assets/images/bg_new_holland_together.png",
       "next": "ch2_s5_mark_2",
       "choices": null,
       "share_text": null
@@ -1540,7 +1588,7 @@
       "text": "Ты не уедешь.",
       "character": "mark",
       "audio": "assets/audio/ch2_s5_mark_2.mp3",
-      "background": "assets/images/ch2_s5_mark_2.webp",
+      "background": "assets/images/bg_new_holland_together.png",
       "next": "ch2_s5_share",
       "choices": null,
       "share_text": null
@@ -1552,7 +1600,7 @@
       "text": "Я пришла. Он посмотрел на куртку и сказал: ты не уедешь. Не спросил. Сказал.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch2_s5_share.webp",
+      "background": "assets/images/bg_share_ch2.png",
       "next": "ch3_s1_narration",
       "choices": null,
       "share_text": "Я пришла. Он посмотрел на куртку и сказал: ты не уедешь. Не спросил. Сказал."
@@ -1564,7 +1612,7 @@
       "text": "Двенадцать ноль три. Он стоит в двух шагах. Первый раз - не текст, не аватарка. Человек. Пальто, руки в карманах, выдох в холодный воздух. Ты не знаешь куда деть руки. Он, кажется, тоже.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s1_narration.webp",
+      "background": "assets/images/bg_new_holland_together.png",
       "next": "ch3_s1_mark",
       "choices": null,
       "share_text": null
@@ -1576,7 +1624,7 @@
       "text": "Кофе?",
       "character": "mark",
       "audio": "assets/audio/ch3_s1_mark.mp3",
-      "background": "assets/images/ch3_s1_mark.webp",
+      "background": "assets/images/bg_new_holland_together.png",
       "next": "ch3_s1_narration_2",
       "choices": null,
       "share_text": null
@@ -1585,10 +1633,22 @@
       "id": "ch3_s1_narration_2",
       "chapter": 3,
       "type": "narration",
-      "text": "Кафе рядом - через дорогу, стеклянные двери, запах и тепло. Он придерживает дверь. Не смотрит на тебя - смотрит внутрь. Столик у окна. Он садится спиной к залу. Ты напротив. Официант. Меню. Два американо. Без сахара. Он заказал за тебя. Не спросив. Молчание. За окном кто-то остановился, посмотрел в телефон, пошел дальше.",
+      "text": "Кафе рядом - через дорогу, стеклянные двери, запах и тепло. Он придерживает дверь. Не смотрит на тебя - смотрит внутрь. Столик у окна. Он садится спиной к залу. Ты напротив.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s1_narration_2.webp",
+      "background": "assets/images/bg_new_holland_together.png",
+      "next": "ch3_s1_narration_2b",
+      "choices": null,
+      "share_text": null
+    },
+    "ch3_s1_narration_2b": {
+      "id": "ch3_s1_narration_2b",
+      "chapter": 3,
+      "type": "narration",
+      "text": "Официант. Меню. Два американо. Без сахара. Он заказал за тебя. Не спросив. Молчание. За окном кто-то остановился, посмотрел в телефон, пошел дальше.",
+      "character": null,
+      "audio": null,
+      "background": "assets/images/bg_new_holland_together.png",
       "next": "ch3_s1_player",
       "choices": null,
       "share_text": null
@@ -1600,7 +1660,7 @@
       "text": "Ты сказал не уедешь. Почему.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch3_s1_player.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s1_narration_3",
       "choices": null,
       "share_text": null
@@ -1612,7 +1672,7 @@
       "text": "Он смотрит на стол. Потом на тебя. В переписке он был точным и быстрым. Вживую - медлит. Как будто без экрана ему сложнее.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s1_narration_3.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s1_mark_2",
       "choices": null,
       "share_text": null
@@ -1624,7 +1684,7 @@
       "text": "В прошлый раз ты тоже не уехала.",
       "character": "mark",
       "audio": "assets/audio/ch3_s1_mark_2.mp3",
-      "background": "assets/images/ch3_s1_mark_2.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s1_narration_4",
       "choices": null,
       "share_text": null
@@ -1636,7 +1696,7 @@
       "text": "Приносят заказ. Два стакана. Официант уходит. Ты никуда не уезжала. Никогда.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s1_narration_4.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s1_share",
       "choices": null,
       "share_text": null
@@ -1648,7 +1708,7 @@
       "text": "Он сказал - ты не уедешь. Я спросила почему. Он ответил: в прошлый раз ты тоже не уехала. Но я никуда не уезжала. Никогда.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s1_share.webp",
+      "background": "assets/images/bg_share_ch3.png",
       "next": "ch3_s2_narration",
       "choices": null,
       "share_text": "Он сказал - ты не уедешь. Я спросила почему. Он ответил: в прошлый раз ты тоже не уехала. Но я никуда не уезжала. Никогда."
@@ -1660,7 +1720,7 @@
       "text": "Ты смотришь на него. Он - в окно. Ты не трогаешь стакан.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s2_player",
       "choices": null,
       "share_text": null
@@ -1672,7 +1732,7 @@
       "text": "Какой прошлый раз.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch3_s2_player.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s2_narration_2",
       "choices": null,
       "share_text": null
@@ -1684,7 +1744,7 @@
       "text": "Он поворачивается. Смотрит - не сразу, через секунду. Как будто ему нужно собраться.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_narration_2.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s2_mark",
       "choices": null,
       "share_text": null
@@ -1696,7 +1756,7 @@
       "text": "Московский вокзал. Июнь, пять лет назад. Седьмая платформа.",
       "character": "mark",
       "audio": "assets/audio/ch3_s2_mark.mp3",
-      "background": "assets/images/ch3_s2_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s2_narration_3",
       "choices": null,
       "share_text": null
@@ -1708,7 +1768,7 @@
       "text": "Ты замираешь. Пять лет назад в июне ты была в Питере. Все лето. Никуда не ездила.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_narration_3.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s2_player_2",
       "choices": null,
       "share_text": null
@@ -1720,7 +1780,7 @@
       "text": "Ты путаешь.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch3_s2_player_2.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s2_narration_4",
       "choices": null,
       "share_text": null
@@ -1732,7 +1792,7 @@
       "text": "Он не отвечает. Берет стакан, ставит обратно. Медленно.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_narration_4.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s2_mark_2",
       "choices": null,
       "share_text": null
@@ -1744,7 +1804,7 @@
       "text": "Серый чемодан. Большой. Ты стояла на платформе, потом развернулась и ушла.",
       "character": "mark",
       "audio": "assets/audio/ch3_s2_mark_2.mp3",
-      "background": "assets/images/ch3_s2_mark_2.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s2_narration_5",
       "choices": null,
       "share_text": null
@@ -1756,7 +1816,7 @@
       "text": "Серый чемодан. Он стоит у тебя дома, в углу. Ты купила его пять лет назад. Собиралась уехать - не помнишь куда, не помнишь зачем. Не уехала.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_narration_5.webp",
+      "background": "assets/images/bg_suitcase.png",
       "next": "ch3_s2_choice",
       "choices": null,
       "share_text": null
@@ -1768,7 +1828,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_choice.webp",
+      "background": "assets/images/bg_choice_cafe.png",
       "next": null,
       "choices": [
         {
@@ -1789,7 +1849,7 @@
       "text": "Он смотрит на тебя. Впервые - долго, не отводя.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_a_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s2_a_mark",
       "choices": null,
       "share_text": null
@@ -1801,7 +1861,7 @@
       "text": "Я все равно не подошел.",
       "character": "mark",
       "audio": "assets/audio/ch3_s2_a_mark.mp3",
-      "background": "assets/images/ch3_s2_a_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s2_cliff_narration",
       "choices": null,
       "share_text": null
@@ -1813,7 +1873,7 @@
       "text": "Тишина. Он молчит. Ты смотришь на стакан. Он смотрит на тебя.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_b_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s2_b_mark",
       "choices": null,
       "share_text": null
@@ -1825,7 +1885,7 @@
       "text": "Я не подошел тогда.",
       "character": "mark",
       "audio": "assets/audio/ch3_s2_b_mark.mp3",
-      "background": "assets/images/ch3_s2_b_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s2_b_mark_2",
       "choices": null,
       "share_text": null
@@ -1837,7 +1897,7 @@
       "text": "Потом жалел.",
       "character": "mark",
       "audio": "assets/audio/ch3_s2_b_mark_2.mp3",
-      "background": "assets/images/ch3_s2_b_mark_2.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s2_cliff_narration",
       "choices": null,
       "share_text": null
@@ -1849,7 +1909,7 @@
       "text": "Он смотрит на твои руки. На стакан, который ты так и не взяла.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_cliff_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s2_cliff_mark",
       "choices": null,
       "share_text": null
@@ -1861,7 +1921,7 @@
       "text": "Ты помнишь август, первый курс?",
       "character": "mark",
       "audio": "assets/audio/ch3_s2_cliff_mark.mp3",
-      "background": "assets/images/ch3_s2_cliff_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s2_share",
       "choices": null,
       "share_text": null
@@ -1873,7 +1933,7 @@
       "text": "Он говорит, что видел меня на Московском вокзале пять лет назад. Я там не была. Но серый чемодан - у меня дома. Ни разу им не пользовалась.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s2_share.webp",
+      "background": "assets/images/bg_share_ch3.png",
       "next": "ch3_s3_narration",
       "choices": null,
       "share_text": "Он говорит, что видел меня на Московском вокзале пять лет назад. Я там не была. Но серый чемодан - у меня дома. Ни разу им не пользовалась."
@@ -1885,7 +1945,7 @@
       "text": "Август, первый курс. Очередь у деканата, стенды с расписанием, жара в питерских коридорах. Сто незнакомых лиц.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s3_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s3_player",
       "choices": null,
       "share_text": null
@@ -1897,7 +1957,7 @@
       "text": "Нет.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch3_s3_player.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s3_narration_2",
       "choices": null,
       "share_text": null
@@ -1909,7 +1969,7 @@
       "text": "Он кивает. Как будто не ожидал другого.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s3_narration_2.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s3_mark",
       "choices": null,
       "share_text": null
@@ -1921,7 +1981,7 @@
       "text": "Ты читала книгу. Я спросил какую. Ты сказала название и ушла.",
       "character": "mark",
       "audio": "assets/audio/ch3_s3_mark.mp3",
-      "background": "assets/images/ch3_s3_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s3_mark_2",
       "choices": null,
       "share_text": null
@@ -1933,7 +1993,7 @@
       "text": "Я потом купил ту книгу.",
       "character": "mark",
       "audio": "assets/audio/ch3_s3_mark_2.mp3",
-      "background": "assets/images/ch3_s3_mark_2.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s3_narration_3",
       "choices": null,
       "share_text": null
@@ -1945,7 +2005,7 @@
       "text": "За окном проехал автобус. Кто-то за соседним столиком попросил счет. Ты смотришь на его руки. Обе на столе. Часы на левом запястье - механические, не телефон.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s3_narration_3.webp",
+      "background": "assets/images/bg_cafe_hands.png",
       "next": "ch3_s3_player_2",
       "choices": null,
       "share_text": null
@@ -1957,7 +2017,7 @@
       "text": "Зачем.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch3_s3_player_2.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s3_narration_4",
       "choices": null,
       "share_text": null
@@ -1969,7 +2029,7 @@
       "text": "Он молчит. Несколько секунд.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s3_narration_4.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s3_mark_3",
       "choices": null,
       "share_text": null
@@ -1981,7 +2041,7 @@
       "text": "Хотел понять, что ты в ней нашла.",
       "character": "mark",
       "audio": "assets/audio/ch3_s3_mark_3.mp3",
-      "background": "assets/images/ch3_s3_mark_3.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s3_narration_5",
       "choices": null,
       "share_text": null
@@ -1993,7 +2053,7 @@
       "text": "Ты берешь стакан. Первый раз за все время. Уже холодный. Он смотрит на это. Потом в окно.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s3_narration_5.webp",
+      "background": "assets/images/bg_cafe_hands.png",
       "next": "ch3_s3_mark_4",
       "choices": null,
       "share_text": null
@@ -2005,7 +2065,7 @@
       "text": "Ты живешь в соседнем доме.",
       "character": "mark",
       "audio": "assets/audio/ch3_s3_mark_4.mp3",
-      "background": "assets/images/ch3_s3_mark_4.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s3_narration_6",
       "choices": null,
       "share_text": null
@@ -2017,7 +2077,7 @@
       "text": "Ты ставишь стакан. Два года. Ты прожила там два года. Ни разу его не видела.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s3_narration_6.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s3_cliff_mark",
       "choices": null,
       "share_text": null
@@ -2029,7 +2089,7 @@
       "text": "Я видел тебя каждый день.",
       "character": "mark",
       "audio": "assets/audio/ch3_s3_cliff_mark.mp3",
-      "background": "assets/images/ch3_s3_cliff_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s3_share",
       "choices": null,
       "share_text": null
@@ -2041,7 +2101,7 @@
       "text": "Он купил книгу, которую я читала шесть лет назад. Чтобы понять, что я в ней нашла. А потом сказал: я видел тебя каждый день. Два года.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s3_share.webp",
+      "background": "assets/images/bg_share_ch3.png",
       "next": "ch3_s4_narration",
       "choices": null,
       "share_text": "Он купил книгу, которую я читала шесть лет назад. Чтобы понять, что я в ней нашла. А потом сказал: я видел тебя каждый день. Два года."
@@ -2053,7 +2113,7 @@
       "text": "Кафе гудит. Голоса, музыка из чьего-то телефона, кофемашина. Ты смотришь на него. Два года. Один двор. Одни окна.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s4_player",
       "choices": null,
       "share_text": null
@@ -2065,7 +2125,7 @@
       "text": "Почему ты не подошел.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch3_s4_player.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s4_narration_2",
       "choices": null,
       "share_text": null
@@ -2077,7 +2137,7 @@
       "text": "Он смотрит на стол. За окно.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_narration_2.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s4_mark",
       "choices": null,
       "share_text": null
@@ -2089,7 +2149,7 @@
       "text": "Ты всегда куда-то шла.",
       "character": "mark",
       "audio": "assets/audio/ch3_s4_mark.mp3",
-      "background": "assets/images/ch3_s4_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s4_narration_3",
       "choices": null,
       "share_text": null
@@ -2101,7 +2161,7 @@
       "text": "Ты ждешь.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_narration_3.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s4_mark_2",
       "choices": null,
       "share_text": null
@@ -2113,7 +2173,7 @@
       "text": "Каждый раз доходил до подъезда. Разворачивался.",
       "character": "mark",
       "audio": "assets/audio/ch3_s4_mark_2.mp3",
-      "background": "assets/images/ch3_s4_mark_2.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s4_narration_4",
       "choices": null,
       "share_text": null
@@ -2125,7 +2185,7 @@
       "text": "Он берет стакан. Пустой. Ставит обратно. Ты думаешь о своем бывшем. Тот тоже молчал. Но по-другому.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_narration_4.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s4_choice",
       "choices": null,
       "share_text": null
@@ -2137,7 +2197,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_choice.webp",
+      "background": "assets/images/bg_choice_cafe.png",
       "next": null,
       "choices": [
         {
@@ -2162,7 +2222,7 @@
       "text": "Он смотрит на тебя.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_a_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s4_a_mark",
       "choices": null,
       "share_text": null
@@ -2174,7 +2234,7 @@
       "text": "Не знаю.",
       "character": "mark",
       "audio": "assets/audio/ch3_s4_a_mark.mp3",
-      "background": "assets/images/ch3_s4_a_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s4_cliff_narration",
       "choices": null,
       "share_text": null
@@ -2186,7 +2246,7 @@
       "text": "Он кивает. Смотрит на часы - механические.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_b_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s4_b_mark",
       "choices": null,
       "share_text": null
@@ -2198,7 +2258,7 @@
       "text": "Четыре часа.",
       "character": "mark",
       "audio": "assets/audio/ch3_s4_b_mark.mp3",
-      "background": "assets/images/ch3_s4_b_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s4_cliff_narration",
       "choices": null,
       "share_text": null
@@ -2210,7 +2270,7 @@
       "text": "Тишина. Он не торопится. Сидит. Смотрит на твои руки. За окном останавливается женщина с коляской.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_c_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s4_cliff_narration",
       "choices": null,
       "share_text": null
@@ -2222,7 +2282,7 @@
       "text": "Он встает. Берет пальто со спинки стула.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_cliff_narration.webp",
+      "background": "assets/images/bg_cafe_window.png",
       "next": "ch3_s4_cliff_mark",
       "choices": null,
       "share_text": null
@@ -2234,7 +2294,7 @@
       "text": "Пойдем.",
       "character": "mark",
       "audio": "assets/audio/ch3_s4_cliff_mark.mp3",
-      "background": "assets/images/ch3_s4_cliff_mark.webp",
+      "background": "assets/images/bg_cafe_mark.png",
       "next": "ch3_s4_share",
       "choices": null,
       "share_text": null
@@ -2246,7 +2306,7 @@
       "text": "Он два года видел меня каждый день. Каждый раз доходил до подъезда и разворачивался. Потом встал и сказал: пойдем.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s4_share.webp",
+      "background": "assets/images/bg_share_ch3.png",
       "next": "ch3_s5_narration",
       "choices": null,
       "share_text": "Он два года видел меня каждый день. Каждый раз доходил до подъезда и разворачивался. Потом встал и сказал: пойдем."
@@ -2258,7 +2318,7 @@
       "text": "Улица. Холоднее, чем час назад. Ветер тянет с канала. Он идет чуть впереди. Не оглядывается. Сворачивает в арку - старый двор, дерево без листьев, лавочка у стены. Садится. Ты останавливаешься рядом.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_narration.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_mark",
       "choices": null,
       "share_text": null
@@ -2270,7 +2330,7 @@
       "text": "Садись.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark.mp3",
-      "background": "assets/images/ch3_s5_mark.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_narration_3",
       "choices": null,
       "share_text": null
@@ -2282,7 +2342,7 @@
       "text": "Ты садишься. Между вами полметра. Двор пустой. Где-то наверху хлопнула форточка.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_narration_3.webp",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_mark_2",
       "choices": null,
       "share_text": null
@@ -2294,7 +2354,7 @@
       "text": "Ты помнишь, что читала тогда.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_2.mp3",
-      "background": "assets/images/ch3_s5_mark_2.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_player",
       "choices": null,
       "share_text": null
@@ -2306,7 +2366,7 @@
       "text": "Помню.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch3_s5_player.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_narration_4",
       "choices": null,
       "share_text": null
@@ -2318,7 +2378,7 @@
       "text": "Он смотрит на дерево.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_narration_4.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_mark_3",
       "choices": null,
       "share_text": null
@@ -2330,7 +2390,7 @@
       "text": "Я дочитал до середины. Героиня уезжает. Не возвращается.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_3.mp3",
-      "background": "assets/images/ch3_s5_mark_3.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_mark_4",
       "choices": null,
       "share_text": null
@@ -2342,7 +2402,7 @@
       "text": "Закрыл и выбросил.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_4.mp3",
-      "background": "assets/images/ch3_s5_mark_4.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_narration_5",
       "choices": null,
       "share_text": null
@@ -2354,7 +2414,7 @@
       "text": "Ты смотришь на его руки. Лежат на коленях. Часы на левом запястье.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_narration_5.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_player_2",
       "choices": null,
       "share_text": null
@@ -2366,7 +2426,7 @@
       "text": "Зачем ты мне все это говоришь.",
       "character": "player",
       "audio": null,
-      "background": "assets/images/ch3_s5_player_2.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_narration_6",
       "choices": null,
       "share_text": null
@@ -2378,7 +2438,7 @@
       "text": "Он поворачивается. Смотрит на тебя.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_narration_6.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_mark_5",
       "choices": null,
       "share_text": null
@@ -2390,7 +2450,7 @@
       "text": "Потому что через четыре часа тебя здесь не будет.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_5.mp3",
-      "background": "assets/images/ch3_s5_mark_5.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_mark_6",
       "choices": null,
       "share_text": null
@@ -2402,7 +2462,7 @@
       "text": "Которая всегда уходит.",
       "character": "mark",
       "audio": "assets/audio/ch3_s5_mark_6.mp3",
-      "background": "assets/images/ch3_s5_mark_6.webp",
+      "background": "assets/images/bg_courtyard.png",
       "next": "ch3_s5_narration_7",
       "choices": null,
       "share_text": null
@@ -2414,7 +2474,7 @@
       "text": "Ты смотришь на дерево. Он смотрит на дерево. Тихо. Телефон в кармане. Шесть сорок вечера. Четыре часа.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_narration_7.webp",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": "ch3_s5_choice",
       "choices": null,
       "share_text": null
@@ -2426,7 +2486,7 @@
       "text": "",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_choice.webp",
+      "background": "assets/images/bg_courtyard_bench.png",
       "next": null,
       "choices": [
         {
@@ -2451,7 +2511,7 @@
       "text": "Он выбросил книгу, потому что героиня уезжает и не возвращается. Потом посмотрел на меня и сказал: которая всегда уходит. У меня поезд через четыре часа.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_a_share.webp",
+      "background": "assets/images/bg_share_ending_a.png",
       "next": "ending_a",
       "choices": null,
       "share_text": "Он выбросил книгу, потому что героиня уезжает и не возвращается. Потом посмотрел на меня и сказал: которая всегда уходит. У меня поезд через четыре часа."
@@ -2463,7 +2523,7 @@
       "text": "Он выбросил книгу, потому что героиня уезжает и не возвращается. Потом посмотрел на меня и сказал: которая всегда уходит. У меня поезд через четыре часа.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_b_share.webp",
+      "background": "assets/images/bg_share_ending_b.png",
       "next": "ending_b",
       "choices": null,
       "share_text": "Он выбросил книгу, потому что героиня уезжает и не возвращается. Потом посмотрел на меня и сказал: которая всегда уходит. У меня поезд через четыре часа."
@@ -2475,7 +2535,7 @@
       "text": "Он выбросил книгу, потому что героиня уезжает и не возвращается. Потом посмотрел на меня и сказал: которая всегда уходит. У меня поезд через четыре часа.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ch3_s5_c_share.webp",
+      "background": "assets/images/bg_share_ending_c.png",
       "next": "ending_c",
       "choices": null,
       "share_text": "Он выбросил книгу, потому что героиня уезжает и не возвращается. Потом посмотрел на меня и сказал: которая всегда уходит. У меня поезд через четыре часа."
@@ -2487,7 +2547,7 @@
       "text": "\"Я не всегда ухожу.\" Он не отвечает сразу. Смотрит на дерево. Потом на тебя - быстро, одну секунду. Снова на дерево.\n\n\"Ладно.\"\n\nВы сидите. Двор, дерево, холод. В доме напротив кто-то включил свет. Ты достаешь телефон. Открываешь приложение. Билет на шесть сорок. Смотришь на экран. Убираешь телефон.\n\n\"Пойдем.\"\n\nТы встаешь. Он встает рядом. Идет к арке. Оборачивается - смотрит не на тебя, на двор. Потом идет дальше. Ты идешь за ним. Билет не отменен. Чемодан дома. Серый, большой, собранный. Ты все еще не знаешь, как он узнал про билет. Но серая куртка на плечах, и ты никуда не торопишься.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ending_a.webp",
+      "background": "assets/images/ending_a.png",
       "next": null,
       "choices": null,
       "share_text": null
@@ -2499,7 +2559,7 @@
       "text": "\"Мне пора.\" Ты встаешь. Он не встает. Сидит. Смотрит на тебя снизу вверх.\n\n\"Я знаю.\"\n\nТы идешь к арке. Останавливаешься. Оборачиваешься. Он сидит на лавочке. Смотрит на дерево. Не на тебя. Ты идешь дальше. Улица, метро, две остановки. Дома - чемодан у двери, коробки у окна. Куртка на плечах. Такси через шесть минут. Ты сидишь на заднем сиденье. Смотришь в окно. Канал, мосты, дома уходят назад. Телефон в руке вибрирует. Одно сообщение. От Марка. Экран светится. Ты смотришь на него. Не открываешь. Московский вокзал через двадцать минут. Экран гаснет. Ты так и не узнала, что там было написано.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ending_b.webp",
+      "background": "assets/images/ending_b.png",
       "next": null,
       "choices": null,
       "share_text": null
@@ -2511,7 +2571,7 @@
       "text": "Ты встаешь. Он сидит. Смотрит на дерево. Ты идешь к арке. Не оборачиваешься. Улица. Люди, машины. Останавливаешься у светофора. Красный. Зеленый. Идешь. Телефон молчит. Ты не пишешь. Он не пишет. Метро. Две остановки. Эскалатор вниз. Дома - чемодан у стены, коробки. Садишься на пол рядом. На полу у двери ключи. Два комплекта - один сдать хозяйке. Ты смотришь на серую куртку. Снимаешь. Держишь в руках. Вешаешь обратно на крючок. Завтра тебя здесь не будет. Это не изменилось. Но куртку ты не убрала в чемодан.",
       "character": null,
       "audio": null,
-      "background": "assets/images/ending_c.webp",
+      "background": "assets/images/ending_c.png",
       "next": null,
       "choices": null,
       "share_text": null
