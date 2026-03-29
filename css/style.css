@@ -3,10 +3,18 @@
   --narrative-font: "Cormorant Garamond", serif;
   --text: #f6f3ef;
   --muted: rgba(246, 243, 239, 0.8);
-  --shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
-  --mark-bg: rgba(15, 17, 22, 0.8);
+  --shadow: 0 18px 38px rgba(0, 0, 0, 0.34);
+  --panel-shadow: 0 20px 42px rgba(0, 0, 0, 0.42);
+  --panel-border: rgba(232, 214, 187, 0.18);
+  --narration-bg: linear-gradient(135deg, rgba(26, 15, 11, 0.82), rgba(49, 28, 20, 0.76));
+  --mark-bg: linear-gradient(135deg, rgba(16, 18, 24, 0.9), rgba(36, 42, 52, 0.82));
   --player-bg: rgba(174, 126, 78, 0.92);
-  --choice-bg: rgba(20, 20, 20, 0.5);
+  --choice-bg: linear-gradient(135deg, rgba(82, 49, 30, 0.94), rgba(146, 98, 58, 0.9));
+  --choice-bg-hover: linear-gradient(135deg, rgba(102, 61, 36, 0.98), rgba(171, 116, 67, 0.94));
+  --choice-border: rgba(244, 223, 196, 0.24);
+  --primary-bg: linear-gradient(135deg, rgba(236, 221, 197, 0.98), rgba(204, 164, 108, 0.96));
+  --primary-bg-hover: linear-gradient(135deg, rgba(245, 229, 206, 1), rgba(217, 177, 119, 0.98));
+  --button-text-dark: #231910;
 }
 
 * {
@@ -70,8 +78,15 @@ body {
   font-style: italic;
   font-size: 20px;
   line-height: 1.4;
-  text-shadow: var(--shadow);
   color: var(--text);
+  background: var(--narration-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 18px 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.32);
+  box-shadow: var(--panel-shadow);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
 }
 
 .bubble {
@@ -81,6 +96,9 @@ body {
   font-size: 16px;
   line-height: 1.35;
   box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .bubble.mark {
@@ -103,23 +121,43 @@ body {
 .button {
   width: 100%;
   border: none;
-  border-radius: 14px;
-  padding: 14px 16px;
-  font-size: 15px;
+  border-radius: 18px;
+  padding: 16px 18px;
+  font-size: 16px;
   font-family: var(--ui-font);
   background: var(--choice-bg);
   color: var(--text);
   text-align: left;
   cursor: pointer;
-  backdrop-filter: blur(6px);
-  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  box-shadow: var(--panel-shadow);
+  border: 1px solid var(--choice-border);
+  font-weight: 600;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--choice-bg-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.38);
+}
+
+.button:active {
+  transform: translateY(1px) scale(0.995);
 }
 
 .button.primary {
-  background: rgba(225, 206, 176, 0.92);
-  color: #231f18;
+  background: var(--primary-bg);
+  color: var(--button-text-dark);
   text-align: center;
-  font-weight: 600;
+  border-color: rgba(255, 244, 223, 0.42);
+}
+
+.button.primary:hover,
+.button.primary:focus-visible {
+  background: var(--primary-bg-hover);
 }
 
 .share-card {
@@ -226,5 +264,6 @@ body {
 
   .narration {
     font-size: 22px;
+    padding: 20px 24px;
   }
 }
