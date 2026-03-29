@@ -2,13 +2,21 @@
   const app = document.getElementById("app");
   const bg = document.getElementById("bg");
   const content = document.getElementById("content");
+  const launchParams = new URLSearchParams(window.location.search);
   const STORAGE_KEY = "currentSceneId";
   const DEFAULT_PLAYER_NAME = "незнакомка";
   const BACKGROUND_MUSIC_SRC = "audio/ambient.mp3";
   const BACKGROUND_MUSIC_VOLUME = 0.15;
   const vkBridge = window.vkBridge || null;
+  const VK_APP_ID = launchParams.get("vk_app_id");
+  const VK_RUNTIME_KEYS = ["vk_app_id", "vk_user_id", "vk_platform", "viewer_id"];
+  const CAN_USE_VK_BRIDGE = Boolean(
+    vkBridge
+    && typeof vkBridge.send === "function"
+    && VK_RUNTIME_KEYS.some((key) => launchParams.has(key))
+  );
   let vkBridgeInited = window.__vkBridgeInited === true;
-  const VK_DEBUG = new URLSearchParams(window.location.search).get("vkdebug") === "1"
+  const VK_DEBUG = launchParams.get("vkdebug") === "1"
     || localStorage.getItem("vkdebug") === "1";
   const VK_BRIDGE_TIMEOUT_MS = 5000;
   const VK_BRIDGE_RETRY_DELAY_MS = 400;
@@ -161,11 +169,11 @@
     });
   };
 
-  if (vkBridge && typeof vkBridge.subscribe === "function") {
+  if (CAN_USE_VK_BRIDGE && typeof vkBridge.subscribe === "function") {
     vkBridge.subscribe((event) => logVk("VK Bridge event:", event));
   }
 
-  if (vkBridge && !VK_DEBUG) {
+  if (CAN_USE_VK_BRIDGE && !VK_DEBUG) {
     console.info("VK debug is off. Enable with: localStorage.setItem(\"vkdebug\",\"1\"); location.reload();");
   }
 
@@ -173,7 +181,11 @@
   let story = null;
   let currentSceneId = null;
   let currentAudio = null;
-  let backgroundMusic = null;
+  let audioContext = null;
+  let backgroundMusicGain = null;
+  let backgroundMusicBuffer = null;
+  let backgroundMusicSource = null;
+  let backgroundMusicLoadPromise = null;
   let audioUnlocked = false;
   let pendingAudioSrc = null;
   let playerName = DEFAULT_PLAYER_NAME;
@@ -208,15 +220,8 @@
   };
 
   const getShareLink = () => {
-    const params = new URLSearchParams(window.location.search);
-    const appId = params.get("vk_app_id");
-    if (appId) return `https://vk.com/app${appId}`;
+    if (VK_APP_ID) return `https://vk.com/app${VK_APP_ID}`;
     return `${window.location.origin}${window.location.pathname}`;
-  };
-
-  const getVkAppId = () => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("vk_app_id");
   };
 
   const ensureVkInit = async () => {
@@ -228,10 +233,10 @@
   };
 
   const initPlayerName = async () => {
-    if (!vkBridge) return DEFAULT_PLAYER_NAME;
+    if (!CAN_USE_VK_BRIDGE) return DEFAULT_PLAYER_NAME;
     try {
       await ensureVkInit();
-      const data = await vkBridge.send("VKWebAppGetUserInfo");
+      const data = await sendVk("VKWebAppGetUserInfo");
       logVk("VKWebAppGetUserInfo result:", data);
       return data && data.first_name ? data.first_name : DEFAULT_PLAYER_NAME;
     } catch (error) {
@@ -243,7 +248,7 @@
 
   const shareScene = async (text) => {
     const message = safeText(text);
-    if (!vkBridge) return;
+    if (!CAN_USE_VK_BRIDGE) return;
     await ensureVkInit();
     await vkBridge.send("VKWebAppShowWallPostBox", { message });
   };
@@ -255,7 +260,7 @@
   };
 
   const shareWall = async (text, statusNode) => {
-    if (!vkBridge) {
+    if (!CAN_USE_VK_BRIDGE) {
       console.log("share wall:", text);
       setShareStatus(statusNode, "Шеринг на стену недоступен вне VK.");
       return;
@@ -310,7 +315,7 @@
   };
 
   const shareLink = async (statusNode) => {
-    if (!vkBridge) {
+    if (!CAN_USE_VK_BRIDGE) {
       const link = getShareLink();
       console.log("share link:", link);
       setShareStatus(statusNode, "Ссылка выведена в консоль.");
@@ -349,6 +354,7 @@
   const startAudio = (src) => {
     if (!src) return;
     currentAudio = new Audio(src);
+    currentAudio.preload = "auto";
     currentAudio.addEventListener("error", () => {
       console.warn("Audio failed to load:", src);
     });
@@ -357,31 +363,87 @@
     });
   };
 
-  const ensureBackgroundMusic = () => {
-    if (backgroundMusic) return backgroundMusic;
-    backgroundMusic = new Audio(BACKGROUND_MUSIC_SRC);
-    backgroundMusic.loop = true;
-    backgroundMusic.volume = BACKGROUND_MUSIC_VOLUME;
-    backgroundMusic.addEventListener("error", () => {
-      console.warn("Background music failed to load:", BACKGROUND_MUSIC_SRC);
-    });
-    return backgroundMusic;
+  const getAudioContext = () => {
+    if (audioContext) return audioContext;
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return null;
+    audioContext = new AudioContextClass();
+    return audioContext;
   };
 
-  const playBackgroundMusic = () => {
+  const ensureBackgroundMusicGain = () => {
+    const context = getAudioContext();
+    if (!context) return null;
+    if (backgroundMusicGain) return backgroundMusicGain;
+    backgroundMusicGain = context.createGain();
+    backgroundMusicGain.gain.value = BACKGROUND_MUSIC_VOLUME;
+    backgroundMusicGain.connect(context.destination);
+    return backgroundMusicGain;
+  };
+
+  const loadBackgroundMusicBuffer = async () => {
+    if (backgroundMusicBuffer) return backgroundMusicBuffer;
+    if (!backgroundMusicLoadPromise) {
+      backgroundMusicLoadPromise = fetch(BACKGROUND_MUSIC_SRC)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Background music request failed: ${response.status}`);
+          }
+          return response.arrayBuffer();
+        })
+        .then((audioData) => {
+          const context = getAudioContext();
+          if (!context) {
+            throw new Error("Web Audio API is unavailable");
+          }
+          return context.decodeAudioData(audioData);
+        })
+        .then((buffer) => {
+          backgroundMusicBuffer = buffer;
+          return buffer;
+        })
+        .catch((error) => {
+          backgroundMusicLoadPromise = null;
+          console.warn("Background music failed to load:", BACKGROUND_MUSIC_SRC, error);
+          throw error;
+        });
+    }
+    return backgroundMusicLoadPromise;
+  };
+
+  const playBackgroundMusic = async () => {
     if (!audioUnlocked) return;
-    const music = ensureBackgroundMusic();
-    music.volume = BACKGROUND_MUSIC_VOLUME;
-    if (!music.paused) return;
-    music.play().catch(() => {
-      // Playback can still fail if the browser keeps blocking it.
-    });
+    if (backgroundMusicSource) return;
+    const context = getAudioContext();
+    const gain = ensureBackgroundMusicGain();
+    if (!context || !gain) return;
+    try {
+      if (context.state === "suspended") {
+        await context.resume();
+      }
+      const buffer = await loadBackgroundMusicBuffer();
+      if (backgroundMusicSource) return;
+      const source = context.createBufferSource();
+      source.buffer = buffer;
+      source.loop = true;
+      source.connect(gain);
+      source.onended = () => {
+        if (backgroundMusicSource === source) {
+          backgroundMusicSource = null;
+        }
+      };
+      source.start(0);
+      backgroundMusicSource = source;
+    } catch (error) {
+      console.warn("Background music playback failed:", error);
+    }
   };
 
   const stopBackgroundMusic = () => {
-    if (!backgroundMusic) return;
-    backgroundMusic.pause();
-    backgroundMusic.currentTime = 0;
+    if (!backgroundMusicSource) return;
+    backgroundMusicSource.stop();
+    backgroundMusicSource.disconnect();
+    backgroundMusicSource = null;
   };
 
   const syncBackgroundMusic = (scene) => {
@@ -389,7 +451,7 @@
       stopBackgroundMusic();
       return;
     }
-    playBackgroundMusic();
+    void playBackgroundMusic();
   };
 
   const playAudio = (scene) => {
@@ -403,11 +465,13 @@
   };
 
   const unlockAudio = () => {
-    if (audioUnlocked) return;
-    audioUnlocked = true;
-    if (pendingAudioSrc) {
+    if (!audioUnlocked) {
+      audioUnlocked = true;
+    }
+    if (pendingAudioSrc && !currentAudio) {
       startAudio(pendingAudioSrc);
     }
+    void loadBackgroundMusicBuffer().catch(() => {});
     syncBackgroundMusic(story && currentSceneId ? story.scenes[currentSceneId] : null);
   };
 
@@ -549,6 +613,7 @@
 
   const enableTapToAdvance = () => {
     document.addEventListener("pointerdown", unlockAudio, { passive: true });
+    document.addEventListener("click", unlockAudio, { passive: true });
     app.addEventListener("click", (event) => {
       if (event.target.closest("button")) return;
       const scene = story.scenes[currentSceneId];
@@ -569,6 +634,7 @@
     }
     enableTapToAdvance();
     renderScene();
+    void loadBackgroundMusicBuffer().catch(() => {});
     initPlayerName().then((name) => {
       playerName = name || DEFAULT_PLAYER_NAME;
       renderScene();
