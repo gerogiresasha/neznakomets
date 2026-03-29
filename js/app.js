@@ -4,6 +4,8 @@
   const content = document.getElementById("content");
   const STORAGE_KEY = "currentSceneId";
   const DEFAULT_PLAYER_NAME = "незнакомка";
+  const BACKGROUND_MUSIC_SRC = "audio/Night Window Rain.mp3";
+  const BACKGROUND_MUSIC_VOLUME = 0.15;
   const vkBridge = window.vkBridge || null;
   let vkBridgeInited = window.__vkBridgeInited === true;
   const VK_DEBUG = new URLSearchParams(window.location.search).get("vkdebug") === "1"
@@ -171,6 +173,7 @@
   let story = null;
   let currentSceneId = null;
   let currentAudio = null;
+  let backgroundMusic = null;
   let audioUnlocked = false;
   let pendingAudioSrc = null;
   let playerName = DEFAULT_PLAYER_NAME;
@@ -354,6 +357,41 @@
     });
   };
 
+  const ensureBackgroundMusic = () => {
+    if (backgroundMusic) return backgroundMusic;
+    backgroundMusic = new Audio(BACKGROUND_MUSIC_SRC);
+    backgroundMusic.loop = true;
+    backgroundMusic.volume = BACKGROUND_MUSIC_VOLUME;
+    backgroundMusic.addEventListener("error", () => {
+      console.warn("Background music failed to load:", BACKGROUND_MUSIC_SRC);
+    });
+    return backgroundMusic;
+  };
+
+  const playBackgroundMusic = () => {
+    if (!audioUnlocked) return;
+    const music = ensureBackgroundMusic();
+    music.volume = BACKGROUND_MUSIC_VOLUME;
+    if (!music.paused) return;
+    music.play().catch(() => {
+      // Playback can still fail if the browser keeps blocking it.
+    });
+  };
+
+  const stopBackgroundMusic = () => {
+    if (!backgroundMusic) return;
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+  };
+
+  const syncBackgroundMusic = (scene) => {
+    if (!scene || scene.type === "ending") {
+      stopBackgroundMusic();
+      return;
+    }
+    playBackgroundMusic();
+  };
+
   const playAudio = (scene) => {
     if (currentAudio) {
       currentAudio.pause();
@@ -370,6 +408,7 @@
     if (pendingAudioSrc) {
       startAudio(pendingAudioSrc);
     }
+    syncBackgroundMusic(story && currentSceneId ? story.scenes[currentSceneId] : null);
   };
 
   const fadeIn = () => {
@@ -414,6 +453,7 @@
     saveProgress(currentSceneId);
     setBackground(scene);
     playAudio(scene);
+    syncBackgroundMusic(scene);
 
     content.innerHTML = "";
 
