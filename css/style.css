@@ -88,18 +88,15 @@ body {
   box-shadow: var(--panel-shadow);
   backdrop-filter: blur(14px) saturate(115%);
   -webkit-backdrop-filter: blur(14px) saturate(115%);
-}
-
-.narration.compact {
-  max-height: 46vh;
+  max-height: 24vh;
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
 }
 
-.narration.ending.compact {
-  max-height: 42vh;
+.narration.ending {
+  max-height: 22vh;
 }
 
 .bubble {
@@ -112,6 +109,11 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  max-height: 24vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 
 .bubble.mark {

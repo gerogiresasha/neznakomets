@@ -513,8 +513,7 @@
   const createNarration = (text, sceneType = "narration") => {
     const node = document.createElement("div");
     const normalizedText = safeText(text);
-    const isCompact = normalizedText.length > 240;
-    node.className = `narration${isCompact ? " compact" : ""}${sceneType === "ending" ? " ending" : ""}`;
+    node.className = `narration${sceneType === "ending" ? " ending" : ""}`;
     node.textContent = normalizedText;
     return node;
   };
