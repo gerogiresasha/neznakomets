@@ -4,7 +4,7 @@
   const content = document.getElementById("content");
   const STORAGE_KEY = "currentSceneId";
   const DEFAULT_PLAYER_NAME = "незнакомка";
-  const BACKGROUND_MUSIC_SRC = "audio/Night Window Rain.mp3";
+  const BACKGROUND_MUSIC_SRC = "audio/ambient.mp3";
   const BACKGROUND_MUSIC_VOLUME = 0.15;
   const vkBridge = window.vkBridge || null;
   let vkBridgeInited = window.__vkBridgeInited === true;
