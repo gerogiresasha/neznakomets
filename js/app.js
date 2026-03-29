@@ -555,11 +555,6 @@
       const actions = document.createElement("div");
       actions.className = "actions";
       actions.appendChild(
-        createButton("Поделиться", () => {
-          shareScene(scene.share_text || scene.text || "");
-        })
-      );
-      actions.appendChild(
         createButton("Далее", () => {
           if (scene.next) goTo(scene.next);
         }, true)
