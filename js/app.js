@@ -510,6 +510,15 @@
     return btn;
   };
 
+  const createNarration = (text, sceneType = "narration") => {
+    const node = document.createElement("div");
+    const normalizedText = safeText(text);
+    const isCompact = normalizedText.length > 240;
+    node.className = `narration${isCompact ? " compact" : ""}${sceneType === "ending" ? " ending" : ""}`;
+    node.textContent = normalizedText;
+    return node;
+  };
+
   const renderScene = (skipDepth = 0) => {
     const scene = story.scenes[currentSceneId];
     if (!scene) return;
@@ -522,9 +531,7 @@
     content.innerHTML = "";
 
     if (scene.type === "narration") {
-      const text = document.createElement("div");
-      text.className = "narration";
-      text.textContent = safeText(scene.text);
+      const text = createNarration(scene.text, scene.type);
       content.appendChild(text);
     }
 
@@ -547,9 +554,7 @@
     }
 
     if (scene.type === "share_card") {
-      const text = document.createElement("div");
-      text.className = "narration";
-      text.textContent = safeText(scene.text);
+      const text = createNarration(scene.text, scene.type);
       content.appendChild(text);
 
       const actions = document.createElement("div");
@@ -563,9 +568,7 @@
     }
 
     if (scene.type === "ending") {
-      const text = document.createElement("div");
-      text.className = "narration";
-      text.textContent = safeText(scene.text);
+      const text = createNarration(scene.text, scene.type);
       content.appendChild(text);
 
       const actions = document.createElement("div");
