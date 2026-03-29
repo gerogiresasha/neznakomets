@@ -171,6 +171,8 @@
   let story = null;
   let currentSceneId = null;
   let currentAudio = null;
+  let audioUnlocked = false;
+  let pendingAudioSrc = null;
   let playerName = DEFAULT_PLAYER_NAME;
 
   const safeText = (text) => (text || "").replace(/\{\{name\}\}/g, playerName);
@@ -341,19 +343,33 @@
     return src.replace(/^assets\/audio\//, "audio/");
   };
 
+  const startAudio = (src) => {
+    if (!src) return;
+    currentAudio = new Audio(src);
+    currentAudio.addEventListener("error", () => {
+      console.warn("Audio failed to load:", src);
+    });
+    currentAudio.play().catch(() => {
+      // Playback can still fail if the browser keeps blocking it.
+    });
+  };
+
   const playAudio = (scene) => {
     if (currentAudio) {
       currentAudio.pause();
       currentAudio = null;
     }
-    if (!scene.audio) return;
-    currentAudio = new Audio(resolveAudioSrc(scene.audio));
-    currentAudio.addEventListener("error", () => {
-      console.warn("Audio failed to load:", resolveAudioSrc(scene.audio));
-    });
-    currentAudio.play().catch(() => {
-      // Autoplay may be blocked; ignore.
-    });
+    pendingAudioSrc = scene.audio ? resolveAudioSrc(scene.audio) : null;
+    if (!audioUnlocked || !pendingAudioSrc) return;
+    startAudio(pendingAudioSrc);
+  };
+
+  const unlockAudio = () => {
+    if (audioUnlocked) return;
+    audioUnlocked = true;
+    if (pendingAudioSrc) {
+      startAudio(pendingAudioSrc);
+    }
   };
 
   const fadeIn = () => {
@@ -492,6 +508,7 @@
   };
 
   const enableTapToAdvance = () => {
+    document.addEventListener("pointerdown", unlockAudio, { passive: true });
     app.addEventListener("click", (event) => {
       if (event.target.closest("button")) return;
       const scene = story.scenes[currentSceneId];
