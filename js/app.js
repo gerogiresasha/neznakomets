@@ -336,13 +336,21 @@
     img.src = story.scenes[sceneId].background;
   };
 
+  const resolveAudioSrc = (src) => {
+    if (!src) return null;
+    return src.replace(/^assets\/audio\//, "audio/");
+  };
+
   const playAudio = (scene) => {
     if (currentAudio) {
       currentAudio.pause();
       currentAudio = null;
     }
     if (!scene.audio) return;
-    currentAudio = new Audio(scene.audio);
+    currentAudio = new Audio(resolveAudioSrc(scene.audio));
+    currentAudio.addEventListener("error", () => {
+      console.warn("Audio failed to load:", resolveAudioSrc(scene.audio));
+    });
     currentAudio.play().catch(() => {
       // Autoplay may be blocked; ignore.
     });
